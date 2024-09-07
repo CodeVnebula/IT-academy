@@ -11,11 +11,7 @@ from PyQt5.QtWidgets import (
 from PyQt5 import uic
 import sys
 import requests
-import json
-import time
 from pympler import asizeof
-
-
 
 USERNAME = "admin"
 PASSWORD = "admin"
@@ -55,11 +51,13 @@ class Login(QMainWindow):
             self.currency_converter = CurrencyConverter(self)
             
         else:
-            self.wrong_cretentials_label = self.findChild(QLabel, 
-                                                          "wrong_credentials_label",
-                                                          )
+            self.wrong_cretentials_label = self.findChild(
+                QLabel, "wrong_credentials_label",
+            )
             
-            wrong_credentials_message = "არასწორი სახელი ან პაროლი! სცადეთ ხელახლა."
+            wrong_credentials_message = (
+                "არასწორი სახელი ან პაროლი! სცადეთ ხელახლა."
+            )
             self.wrong_credentials_label.setText(wrong_credentials_message)
             self.wrong_cretentials_label.setStyleSheet("color: red;")
             
@@ -68,8 +66,13 @@ class Login(QMainWindow):
     
     
 class CurrencyConverter:
-    __ALL_CURRENCIES_ADDRESS = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json"
-    __EACH_CURRENCY_ADDRESS = __ALL_CURRENCIES_ADDRESS.replace('.json', '') + '/{currency_code}.json'
+    __ALL_CURRENCIES_ADDRESS = (
+        "https://cdn.jsdelivr.net/npm/"
+        "@fawazahmed0/currency-api@latest/v1/currencies.json"
+    )
+    __EACH_CURRENCY_ADDRESS = __ALL_CURRENCIES_ADDRESS.replace(
+        '.json', ''
+    ) + '/{currency_code}.json'
     __DEFAULT_FROM_CURRENCY = "USD"
     __DEFAULT_TO_CURRENCY = "GEL"
     __DEFAULT_FROM_CRYPTO = "BTC"
@@ -112,19 +115,37 @@ class CurrencyConverter:
         self.setup_ui()
     
     def setup_ui(self):
-        self.currency_type_combobox = self.login_instance.findChild(QComboBox, "currency_type_combobox")
-        self.from_currency_combobox = self.login_instance.findChild(QComboBox, "from_currency_combobox")
-        self.to_currency_combobox = self.login_instance.findChild(QComboBox, "to_currency_combobox")
+        self.currency_type_combobox = self.login_instance.findChild(
+            QComboBox, "currency_type_combobox"
+        )
+        self.from_currency_combobox = self.login_instance.findChild(
+            QComboBox, "from_currency_combobox"
+        )
+        self.to_currency_combobox = self.login_instance.findChild(
+            QComboBox, "to_currency_combobox"
+        )
         
-        self.amount_input_line = self.login_instance.findChild(QLineEdit, "amount_input_line")
-        self.result_amount = self.login_instance.findChild(QLabel, "result_amount")
+        self.amount_input_line = self.login_instance.findChild(
+            QLineEdit, "amount_input_line"
+        )
+        self.result_amount = self.login_instance.findChild(
+            QLabel, "result_amount"
+        )
         self.cache_size = self.login_instance.findChild(QLabel, "cache_size")
         self.date_label = self.login_instance.findChild(QLabel, "date_label")
         
-        self.convert_button = self.login_instance.findChild(QPushButton, "convert_button")
-        self.clear_button = self.login_instance.findChild(QPushButton, "clear_button")
-        self.defaults_button = self.login_instance.findChild(QPushButton, "defaults_button")
-        self.logout_button = self.login_instance.findChild(QPushButton, "logout_button")
+        self.convert_button = self.login_instance.findChild(
+            QPushButton, "convert_button"
+        )
+        self.clear_button = self.login_instance.findChild(
+            QPushButton, "clear_button"
+        )
+        self.defaults_button = self.login_instance.findChild(
+            QPushButton, "defaults_button"
+        )
+        self.logout_button = self.login_instance.findChild(
+            QPushButton, "logout_button"
+        )
         
         self.cache_size.setText('0.0 MB')
         self.cache_size.setStyleSheet('color: green;')
@@ -132,7 +153,10 @@ class CurrencyConverter:
         self.data = self.get_all_currencies()
        
         self.fill_currency_comboboxes_with_currencies(data = self.data)
-        self.currency_type_combobox.currentIndexChanged.connect(self.fill_currency_comboboxes)    
+        self.currency_type_combobox.currentIndexChanged.connect(
+            self.fill_currency_comboboxes
+        )  
+          
         self.convert_button.clicked.connect(self.convert_currency)
         self.clear_button.clicked.connect(self.clear_entries)
         self.defaults_button.clicked.connect(self.set_defaults)
@@ -152,13 +176,19 @@ class CurrencyConverter:
         if self.currency_type_combobox.currentIndex() == 0:
             self.fill_currency_comboboxes_with_currencies()
         elif self.currency_type_combobox.currentIndex() == 1:
-            data = {code: name for code, name in self.data.items() if code in self.country_currency_codes}
+            data = {code: name for code, name in self.data.items() 
+                    if code in self.country_currency_codes}
             self.fill_currency_comboboxes_with_currencies(data)
         else:
-            data = {code: name for code, name in self.data.items() if code not in self.country_currency_codes and name}
-            self.fill_currency_comboboxes_with_currencies(data, self.__DEFAULT_FROM_CRYPTO, self.__DEFAULT_TO_CRYPTO)
+            data = {code: name for code, name in self.data.items() 
+                    if code not in self.country_currency_codes and name}
+            self.fill_currency_comboboxes_with_currencies(
+                data, self.__DEFAULT_FROM_CRYPTO, self.__DEFAULT_TO_CRYPTO
+            )
             
-    def fill_currency_comboboxes_with_currencies(self, data=None, def_from_currency=None, def_to_currency=None):
+    def fill_currency_comboboxes_with_currencies(self, data=None, 
+                                                 def_from_currency=None, 
+                                                 def_to_currency=None):
         if data is None:
             data = self.data
         if def_from_currency is None:
@@ -171,7 +201,8 @@ class CurrencyConverter:
         
         self.currency_codes = [key.upper() for key in data.keys()]
         self.currency_names = list(data.values())
-        items = [f'{code} - {name}' for code, name in zip(self.currency_codes, self.currency_names)]
+        items = [f'{code} - {name}' for code, name in zip(self.currency_codes, 
+                                                          self.currency_names)]
         self.from_currency_combobox.addItems(items)
         self.to_currency_combobox.addItems(items)
             
@@ -182,8 +213,10 @@ class CurrencyConverter:
         self.to_currency_combobox.setCurrentIndex(self.to_index) 
 
     def convert_currency(self):
-        to_currency_code = self.to_currency_combobox.currentText().split('-')[0].strip()
-        from_currency_code = self.from_currency_combobox.currentText().split('-')[0].strip()
+        to_currency_code = self.to_currency_combobox.currentText()
+        to_currency_code = to_currency_code.split('-')[0].strip()
+        from_currency_code = self.from_currency_combobox.currentText()
+        from_currency_code = from_currency_code.split('-')[0].strip()
         
         print(to_currency_code, ' To')
         print(from_currency_code, ' From')
@@ -202,14 +235,20 @@ class CurrencyConverter:
             self.result_amount.setText("თანხა დიაპაზონის გარეთაა!")
             self.result_amount.setStyleSheet('color: red;')
         elif from_currency_code == to_currency_code:
-            self.result_amount.setText(f'{str(inputted_amount_text)} {to_currency_code}')
+            self.result_amount.setText(
+                f'{str(inputted_amount_text)} {to_currency_code}'
+            )
             self.result_amount.setStyleSheet('color: green;')
         else:
             from_currency_code_lower = from_currency_code.lower()
             to_currency_code_lower = to_currency_code.lower()
             
-            from_currency_address = self.__EACH_CURRENCY_ADDRESS.format(currency_code = from_currency_code_lower)
-            to_currency_address = self.__EACH_CURRENCY_ADDRESS.format(currency_code = to_currency_code_lower)
+            from_currency_address = self.__EACH_CURRENCY_ADDRESS.format(
+                currency_code = from_currency_code_lower
+            )
+            to_currency_address = self.__EACH_CURRENCY_ADDRESS.format(
+                currency_code = to_currency_code_lower
+            )
             
             if not self.cached_currencies_data:
                 self.cached_currencies_data = {}
@@ -218,32 +257,44 @@ class CurrencyConverter:
                 response_from_currency = requests.get(from_currency_address)
                 if response_from_currency.status_code == 200:
                     from_currency_data = response_from_currency.json()
-                    self.cached_currencies_data[from_currency_code_lower] = from_currency_data
+                    self.cached_currencies_data[from_currency_code_lower] = (
+                        from_currency_data
+                    )
                     print("request sent from, data added")
                 else:
-                    pass
+                    return None
             
             if to_currency_code_lower not in self.cached_currencies_data:
                 response_to_currency = requests.get(to_currency_address)
                 if response_to_currency.status_code == 200:
                     to_currency_data = response_to_currency.json()
-                    self.cached_currencies_data[to_currency_code_lower] = to_currency_data
+                    self.cached_currencies_data[to_currency_code_lower] = (
+                        to_currency_data
+                    )
                     print('request sent to, data added')
                 else:
-                    pass
+                    return None
             
-            result = self.cached_currencies_data[from_currency_code_lower][from_currency_code_lower][to_currency_code_lower] * inputted_amount_text
+            result = (
+                self.cached_currencies_data[from_currency_code_lower]
+                [from_currency_code_lower][to_currency_code_lower]
+                * inputted_amount_text
+            )
             result = f"{result:.4f}"
         
             self.result_amount.setText(f'{str(result)} {to_currency_code}')
             self.result_amount.setStyleSheet('color: green;')
 
-        size_in_megabytes = asizeof.asizeof(self.cached_currencies_data) / (1024 ** 2)
+        size_in_megabytes = (
+            asizeof.asizeof(self.cached_currencies_data)
+            / (1024 ** 2)
+        )
 
         self.cache_size.setText(f"{size_in_megabytes:.6f} MB")
         self.cache_size.setStyleSheet('color: red;')
         
-        self.date_label.setText(f"{self.cached_currencies_data[from_currency_code_lower]['date']}-ის შედეგი")
+        date = self.cached_currencies_data[from_currency_code_lower]['date']
+        self.date_label.setText(f"{date}-ის შედეგი")
         self.date_label.setStyleSheet('color: green;')
             
         print("Convert currency")
@@ -267,7 +318,9 @@ class CurrencyConverter:
         
     def logout(self):
         self.set_defaults()
-        self.login_instance.stackedWidget.setCurrentWidget(self.login_instance.login_page)
+        self.login_instance.stackedWidget.setCurrentWidget(
+            self.login_instance.login_page
+        )
         self.login_instance.username_entry.clear()
         self.login_instance.password_entry.clear()
         self.login_instance.wrong_credentials_label.clear()
