@@ -172,19 +172,21 @@ class CurrencyConverter:
             return None
     
     def fill_currency_comboboxes(self):
-        print("filling currency comboboxes")
         if self.currency_type_combobox.currentIndex() == 0:
             self.fill_currency_comboboxes_with_currencies()
+            print("Currency comboboxes filled with all currencies values!")
         elif self.currency_type_combobox.currentIndex() == 1:
             data = {code: name for code, name in self.data.items() 
                     if code in self.country_currency_codes}
             self.fill_currency_comboboxes_with_currencies(data)
+            print("Currency comboboxes filled with countries currencies only!")
         else:
             data = {code: name for code, name in self.data.items() 
                     if code not in self.country_currency_codes and name}
             self.fill_currency_comboboxes_with_currencies(
                 data, self.__DEFAULT_FROM_CRYPTO, self.__DEFAULT_TO_CRYPTO
             )
+            print("Currency comboboces filled with cryptocurencies only!")
             
     def fill_currency_comboboxes_with_currencies(self, data=None, 
                                                  def_from_currency=None, 
@@ -218,8 +220,9 @@ class CurrencyConverter:
         from_currency_code = self.from_currency_combobox.currentText()
         from_currency_code = from_currency_code.split('-')[0].strip()
         
-        print(to_currency_code, ' To')
-        print(from_currency_code, ' From')
+        print("Converting function called!")
+        print(f"   From currency code - {from_currency_code}")
+        print(f"   To currency code - {to_currency_code}")
         
         inputted_amount_text = self.amount_input_line.text()
         
@@ -260,7 +263,7 @@ class CurrencyConverter:
                     self.cached_currencies_data[from_currency_code_lower] = (
                         from_currency_data
                     )
-                    print("request sent from, data added")
+                    print("Request sent for 'From' currency! Data added to cache.")
                 else:
                     return None
             
@@ -271,7 +274,7 @@ class CurrencyConverter:
                     self.cached_currencies_data[to_currency_code_lower] = (
                         to_currency_data
                     )
-                    print('request sent to, data added')
+                    print("Request sent for 'To' currency! Data added to cache.")
                 else:
                     return None
             
@@ -297,13 +300,13 @@ class CurrencyConverter:
         self.date_label.setText(f"{date}-ის შედეგი")
         self.date_label.setStyleSheet('color: green;')
             
-        print("Convert currency")
+        print("Currency converted successfully")
     
     def clear_entries(self):
         self.amount_input_line.clear()
         self.result_amount.clear()
         self.date_label.clear()
-        print("clear entries")
+        print("Entries cleared")
     
     def set_defaults(self):
         self.clear_entries()
@@ -313,7 +316,7 @@ class CurrencyConverter:
         self.cached_currencies_data = {}
         self.cache_size.setText('0.0 MB')
         self.cache_size.setStyleSheet('color: green;')
-        print("set to defaults")
+        print("Settings set to defaults")
         
         
     def logout(self):
