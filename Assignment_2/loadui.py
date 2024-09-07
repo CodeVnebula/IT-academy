@@ -6,12 +6,14 @@ from PyQt5.QtWidgets import (
     QPushButton, 
     QLabel, 
     QLineEdit, 
-    QComboBox
+    QComboBox,
 )
+from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5 import uic
 import sys
 import requests
 from pympler import asizeof
+import os
 
 USERNAME = "admin"
 PASSWORD = "admin"
@@ -20,7 +22,15 @@ class Login(QMainWindow):
     def __init__(self):
         super(Login, self).__init__()
         
-        uic.loadUi("Assignment_2/app.ui", self)
+        img_path = os.path.join(os.path.dirname(
+            os.path.abspath(__file__)), "icons/favicon.png"
+        )
+        self.setWindowIcon(QIcon(img_path))
+
+        ui_file = os.path.join(os.path.dirname(
+            os.path.abspath(__file__)), "app.ui"
+        )
+        uic.loadUi(ui_file, self)
         
         self.stackedWidget = self.findChild(QStackedWidget, "stackedWidget")
         
@@ -287,6 +297,10 @@ class CurrencyConverter:
         
             self.result_amount.setText(f'{str(result)} {to_currency_code}')
             self.result_amount.setStyleSheet('color: green;')
+            
+            date = self.cached_currencies_data[from_currency_code_lower]['date']
+            self.date_label.setText(f"{date}-ის შედეგი")
+            self.date_label.setStyleSheet('color: green;')
 
         size_in_megabytes = (
             asizeof.asizeof(self.cached_currencies_data)
@@ -295,10 +309,6 @@ class CurrencyConverter:
 
         self.cache_size.setText(f"{size_in_megabytes:.6f} MB")
         self.cache_size.setStyleSheet('color: red;')
-        
-        date = self.cached_currencies_data[from_currency_code_lower]['date']
-        self.date_label.setText(f"{date}-ის შედეგი")
-        self.date_label.setStyleSheet('color: green;')
             
         print("Currency converted successfully")
     
