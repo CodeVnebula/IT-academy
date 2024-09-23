@@ -1,0 +1,2060 @@
+2024-09-23 18:24:46,605 - BEGIN (implicit)
+2024-09-23 18:24:46,606 - PRAGMA main.table_info("author_book")
+2024-09-23 18:24:46,606 - [raw sql] ()
+2024-09-23 18:24:46,607 - PRAGMA temp.table_info("author_book")
+2024-09-23 18:24:46,607 - [raw sql] ()
+2024-09-23 18:24:46,607 - PRAGMA main.table_info("author")
+2024-09-23 18:24:46,608 - [raw sql] ()
+2024-09-23 18:24:46,608 - PRAGMA temp.table_info("author")
+2024-09-23 18:24:46,608 - [raw sql] ()
+2024-09-23 18:24:46,608 - PRAGMA main.table_info("book")
+2024-09-23 18:24:46,608 - [raw sql] ()
+2024-09-23 18:24:46,609 - PRAGMA temp.table_info("book")
+2024-09-23 18:24:46,612 - [raw sql] ()
+2024-09-23 18:24:46,613 - 
+CREATE TABLE author (
+	id INTEGER NOT NULL, 
+	first_name VARCHAR, 
+	last_name VARCHAR, 
+	birth_date DATE, 
+	birth_place VARCHAR, 
+	PRIMARY KEY (id)
+)
+
+
+2024-09-23 18:24:46,613 - [no key 0.00015s] ()
+2024-09-23 18:24:46,623 - 
+CREATE TABLE book (
+	id INTEGER NOT NULL, 
+	title VARCHAR, 
+	category VARCHAR, 
+	pages INTEGER, 
+	publish_date DATE, 
+	PRIMARY KEY (id)
+)
+
+
+2024-09-23 18:24:46,623 - [no key 0.00029s] ()
+2024-09-23 18:24:46,633 - 
+CREATE TABLE author_book (
+	author_id INTEGER, 
+	book_id INTEGER, 
+	FOREIGN KEY(author_id) REFERENCES author (id), 
+	FOREIGN KEY(book_id) REFERENCES book (id)
+)
+
+
+2024-09-23 18:24:46,633 - [no key 0.00026s] ()
+2024-09-23 18:24:46,639 - COMMIT
+2024-09-23 18:24:46,814 - BEGIN (implicit)
+2024-09-23 18:24:46,819 - SELECT count(*) AS count_1 
+FROM (SELECT book.id AS book_id, book.title AS book_title, book.category AS book_category, book.pages AS book_pages, book.publish_date AS book_publish_date 
+FROM book) AS anon_1
+2024-09-23 18:24:46,819 - [generated in 0.00029s] ()
+2024-09-23 18:24:46,820 - COMMIT
+2024-09-23 18:24:46,821 - BEGIN (implicit)
+2024-09-23 18:24:46,823 - SELECT count(*) AS count_1 
+FROM (SELECT author.id AS author_id, author.first_name AS author_first_name, author.last_name AS author_last_name, author.birth_date AS author_birth_date, author.birth_place AS author_birth_place 
+FROM author) AS anon_1
+2024-09-23 18:24:46,823 - [generated in 0.00025s] ()
+2024-09-23 18:24:46,824 - COMMIT
+2024-09-23 18:24:46,826 - BEGIN (implicit)
+2024-09-23 18:24:46,828 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,828 - [generated in 0.00036s] ('Madison', 'Stevenson', '1989-03-14', 'Stevenchester')
+2024-09-23 18:24:46,832 - COMMIT
+2024-09-23 18:24:46,843 - BEGIN (implicit)
+2024-09-23 18:24:46,844 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,844 - [cached since 0.01618s ago] ('Todd', 'Jacobs', '1893-10-29', 'Hawkinsstad')
+2024-09-23 18:24:46,846 - COMMIT
+2024-09-23 18:24:46,853 - BEGIN (implicit)
+2024-09-23 18:24:46,854 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,854 - [cached since 0.02589s ago] ('Francisco', 'Cook', '1967-03-19', 'Lake Taylorchester')
+2024-09-23 18:24:46,857 - COMMIT
+2024-09-23 18:24:46,864 - BEGIN (implicit)
+2024-09-23 18:24:46,864 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,864 - [cached since 0.03622s ago] ('Samantha', 'Hayes', '1948-12-29', 'North Jessicachester')
+2024-09-23 18:24:46,866 - COMMIT
+2024-09-23 18:24:46,872 - BEGIN (implicit)
+2024-09-23 18:24:46,873 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,873 - [cached since 0.04489s ago] ('Kelli', 'Stein', '1982-03-31', 'Lisaport')
+2024-09-23 18:24:46,876 - COMMIT
+2024-09-23 18:24:46,882 - BEGIN (implicit)
+2024-09-23 18:24:46,882 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,882 - [cached since 0.0543s ago] ('Antonio', 'Lucas', '1957-04-10', 'Blackport')
+2024-09-23 18:24:46,885 - COMMIT
+2024-09-23 18:24:46,890 - BEGIN (implicit)
+2024-09-23 18:24:46,891 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,891 - [cached since 0.06318s ago] ('Jocelyn', 'Sanchez', '1891-12-09', 'Warrenchester')
+2024-09-23 18:24:46,892 - COMMIT
+2024-09-23 18:24:46,900 - BEGIN (implicit)
+2024-09-23 18:24:46,900 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,900 - [cached since 0.07202s ago] ('Jason', 'Watkins', '1916-10-20', 'Warrenchester')
+2024-09-23 18:24:46,902 - COMMIT
+2024-09-23 18:24:46,908 - BEGIN (implicit)
+2024-09-23 18:24:46,908 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,908 - [cached since 0.0797s ago] ('William', 'Fry', '1932-07-15', 'New Kellyville')
+2024-09-23 18:24:46,909 - COMMIT
+2024-09-23 18:24:46,916 - BEGIN (implicit)
+2024-09-23 18:24:46,917 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,917 - [cached since 0.08834s ago] ('Christopher', 'Mitchell', '1915-08-18', 'East Victoriafurt')
+2024-09-23 18:24:46,919 - COMMIT
+2024-09-23 18:24:46,924 - BEGIN (implicit)
+2024-09-23 18:24:46,925 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,925 - [cached since 0.09653s ago] ('Bryan', 'Wright', '1911-01-24', 'Youngport')
+2024-09-23 18:24:46,927 - COMMIT
+2024-09-23 18:24:46,933 - BEGIN (implicit)
+2024-09-23 18:24:46,934 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,934 - [cached since 0.1056s ago] ('Kenneth', 'Mccoy', '1881-06-15', 'Amberchester')
+2024-09-23 18:24:46,936 - COMMIT
+2024-09-23 18:24:46,943 - BEGIN (implicit)
+2024-09-23 18:24:46,943 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,943 - [cached since 0.1149s ago] ('Valerie', 'Bernard', '1967-11-02', 'Lindaview')
+2024-09-23 18:24:46,945 - COMMIT
+2024-09-23 18:24:46,951 - BEGIN (implicit)
+2024-09-23 18:24:46,951 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,951 - [cached since 0.1231s ago] ('Anthony', 'Cooper', '1975-06-07', 'Travisfurt')
+2024-09-23 18:24:46,953 - COMMIT
+2024-09-23 18:24:46,960 - BEGIN (implicit)
+2024-09-23 18:24:46,960 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,960 - [cached since 0.132s ago] ('Justin', 'Lara', '1900-01-18', 'New Rachel')
+2024-09-23 18:24:46,962 - COMMIT
+2024-09-23 18:24:46,969 - BEGIN (implicit)
+2024-09-23 18:24:46,969 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,969 - [cached since 0.1409s ago] ('Patrick', 'Patrick', '1948-05-03', 'Port Michael')
+2024-09-23 18:24:46,971 - COMMIT
+2024-09-23 18:24:46,977 - BEGIN (implicit)
+2024-09-23 18:24:46,978 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,978 - [cached since 0.1497s ago] ('Monica', 'Reese', '1847-08-06', 'Michaelfurt')
+2024-09-23 18:24:46,980 - COMMIT
+2024-09-23 18:24:46,986 - BEGIN (implicit)
+2024-09-23 18:24:46,987 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,987 - [cached since 0.1585s ago] ('Adriana', 'Bartlett', '1864-02-13', 'Jacksonchester')
+2024-09-23 18:24:46,989 - COMMIT
+2024-09-23 18:24:46,997 - BEGIN (implicit)
+2024-09-23 18:24:46,998 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:46,999 - [cached since 0.1703s ago] ('Alicia', 'Sawyer', '2003-09-08', 'North Patriciafort')
+2024-09-23 18:24:47,002 - COMMIT
+2024-09-23 18:24:47,010 - BEGIN (implicit)
+2024-09-23 18:24:47,011 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,011 - [cached since 0.1827s ago] ('David', 'Arnold', '1841-08-06', 'Lake Joseph')
+2024-09-23 18:24:47,014 - COMMIT
+2024-09-23 18:24:47,023 - BEGIN (implicit)
+2024-09-23 18:24:47,024 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,024 - [cached since 0.1954s ago] ('Teresa', 'Richardson', '1873-07-12', 'Elizabethbury')
+2024-09-23 18:24:47,026 - COMMIT
+2024-09-23 18:24:47,033 - BEGIN (implicit)
+2024-09-23 18:24:47,033 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,033 - [cached since 0.2051s ago] ('Sharon', 'Bush', '1970-07-21', 'Kaylahaven')
+2024-09-23 18:24:47,035 - COMMIT
+2024-09-23 18:24:47,042 - BEGIN (implicit)
+2024-09-23 18:24:47,042 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,042 - [cached since 0.2139s ago] ('Erin', 'Weeks', '1987-01-22', 'East Cassandra')
+2024-09-23 18:24:47,044 - COMMIT
+2024-09-23 18:24:47,051 - BEGIN (implicit)
+2024-09-23 18:24:47,051 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,051 - [cached since 0.2228s ago] ('Kimberly', 'Wiggins', '1919-12-13', 'Holtside')
+2024-09-23 18:24:47,053 - COMMIT
+2024-09-23 18:24:47,059 - BEGIN (implicit)
+2024-09-23 18:24:47,060 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,060 - [cached since 0.2318s ago] ('Ebony', 'Roberson', '1893-11-19', 'Nicolehaven')
+2024-09-23 18:24:47,062 - COMMIT
+2024-09-23 18:24:47,069 - BEGIN (implicit)
+2024-09-23 18:24:47,070 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,070 - [cached since 0.2416s ago] ('Nicole', 'Reese', '1934-05-21', 'Kimberlyview')
+2024-09-23 18:24:47,072 - COMMIT
+2024-09-23 18:24:47,078 - BEGIN (implicit)
+2024-09-23 18:24:47,079 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,079 - [cached since 0.2507s ago] ('Kyle', 'Harris', '1839-03-27', 'Lake David')
+2024-09-23 18:24:47,081 - COMMIT
+2024-09-23 18:24:47,087 - BEGIN (implicit)
+2024-09-23 18:24:47,087 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,087 - [cached since 0.259s ago] ('Tyler', 'Russell', '1966-03-22', 'Jennifershire')
+2024-09-23 18:24:47,089 - COMMIT
+2024-09-23 18:24:47,095 - BEGIN (implicit)
+2024-09-23 18:24:47,095 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,096 - [cached since 0.2678s ago] ('Nicole', 'Goodwin', '1998-09-29', 'West Jennifer')
+2024-09-23 18:24:47,098 - COMMIT
+2024-09-23 18:24:47,104 - BEGIN (implicit)
+2024-09-23 18:24:47,105 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,105 - [cached since 0.2771s ago] ('Joseph', 'Kirby', '1926-11-30', 'New Nicholas')
+2024-09-23 18:24:47,107 - COMMIT
+2024-09-23 18:24:47,113 - BEGIN (implicit)
+2024-09-23 18:24:47,114 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,114 - [cached since 0.2861s ago] ('James', 'Escobar', '1971-11-28', 'Kevintown')
+2024-09-23 18:24:47,116 - COMMIT
+2024-09-23 18:24:47,122 - BEGIN (implicit)
+2024-09-23 18:24:47,123 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,123 - [cached since 0.2955s ago] ('Brooke', 'Ware', '2004-01-05', 'South Kennethton')
+2024-09-23 18:24:47,125 - COMMIT
+2024-09-23 18:24:47,131 - BEGIN (implicit)
+2024-09-23 18:24:47,132 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,132 - [cached since 0.3042s ago] ('Karen', 'Graham', '1893-08-22', 'Woodardstad')
+2024-09-23 18:24:47,134 - COMMIT
+2024-09-23 18:24:47,140 - BEGIN (implicit)
+2024-09-23 18:24:47,141 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,141 - [cached since 0.3132s ago] ('Shane', 'Beck', '1880-08-26', 'North Shirleybury')
+2024-09-23 18:24:47,144 - COMMIT
+2024-09-23 18:24:47,150 - BEGIN (implicit)
+2024-09-23 18:24:47,150 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,151 - [cached since 0.3229s ago] ('Olivia', 'Davis', '1865-06-05', 'East Lisaborough')
+2024-09-23 18:24:47,154 - COMMIT
+2024-09-23 18:24:47,160 - BEGIN (implicit)
+2024-09-23 18:24:47,160 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,160 - [cached since 0.3325s ago] ('Dominique', 'Gibson', '1956-01-24', 'Thompsonside')
+2024-09-23 18:24:47,162 - COMMIT
+2024-09-23 18:24:47,168 - BEGIN (implicit)
+2024-09-23 18:24:47,168 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,168 - [cached since 0.3404s ago] ('Brandon', 'Watson', '1965-03-15', 'East Melanieview')
+2024-09-23 18:24:47,170 - COMMIT
+2024-09-23 18:24:47,176 - BEGIN (implicit)
+2024-09-23 18:24:47,176 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,177 - [cached since 0.3489s ago] ('Sarah', 'Coleman', '1913-03-19', 'North Michealhaven')
+2024-09-23 18:24:47,179 - COMMIT
+2024-09-23 18:24:47,185 - BEGIN (implicit)
+2024-09-23 18:24:47,185 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,185 - [cached since 0.3575s ago] ('Christopher', 'Davis', '1911-01-29', 'Port Kimberlyville')
+2024-09-23 18:24:47,188 - COMMIT
+2024-09-23 18:24:47,194 - BEGIN (implicit)
+2024-09-23 18:24:47,195 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,195 - [cached since 0.3665s ago] ('Curtis', 'Robinson', '1967-08-22', 'West Thomastown')
+2024-09-23 18:24:47,197 - COMMIT
+2024-09-23 18:24:47,202 - BEGIN (implicit)
+2024-09-23 18:24:47,203 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,203 - [cached since 0.3748s ago] ('Justin', 'Ruiz', '1987-01-25', 'New Rebecca')
+2024-09-23 18:24:47,205 - COMMIT
+2024-09-23 18:24:47,211 - BEGIN (implicit)
+2024-09-23 18:24:47,212 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,212 - [cached since 0.3836s ago] ('Daniel', 'Martin', '1839-01-08', 'West Tyler')
+2024-09-23 18:24:47,214 - COMMIT
+2024-09-23 18:24:47,219 - BEGIN (implicit)
+2024-09-23 18:24:47,219 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,219 - [cached since 0.3913s ago] ('Andrew', 'Hawkins', '1905-04-30', 'Jasonside')
+2024-09-23 18:24:47,222 - COMMIT
+2024-09-23 18:24:47,228 - BEGIN (implicit)
+2024-09-23 18:24:47,229 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,229 - [cached since 0.4004s ago] ('Jody', 'Callahan', '1835-08-19', 'Madisonmouth')
+2024-09-23 18:24:47,231 - COMMIT
+2024-09-23 18:24:47,236 - BEGIN (implicit)
+2024-09-23 18:24:47,237 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,237 - [cached since 0.4088s ago] ('Alyssa', 'Cain', '1875-11-08', 'East Jonathonmouth')
+2024-09-23 18:24:47,239 - COMMIT
+2024-09-23 18:24:47,245 - BEGIN (implicit)
+2024-09-23 18:24:47,245 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,245 - [cached since 0.4168s ago] ('Rebecca', 'Stewart', '1900-08-17', 'Cassidybury')
+2024-09-23 18:24:47,247 - COMMIT
+2024-09-23 18:24:47,253 - BEGIN (implicit)
+2024-09-23 18:24:47,253 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,254 - [cached since 0.4254s ago] ('Karen', 'Hines', '1920-06-20', 'East Leslie')
+2024-09-23 18:24:47,255 - COMMIT
+2024-09-23 18:24:47,261 - BEGIN (implicit)
+2024-09-23 18:24:47,262 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,262 - [cached since 0.4337s ago] ('Kelly', 'Baker', '1881-03-27', 'Johnland')
+2024-09-23 18:24:47,264 - COMMIT
+2024-09-23 18:24:47,270 - BEGIN (implicit)
+2024-09-23 18:24:47,271 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,271 - [cached since 0.4428s ago] ('James', 'Mooney', '1852-06-19', 'Martinezhaven')
+2024-09-23 18:24:47,273 - COMMIT
+2024-09-23 18:24:47,279 - BEGIN (implicit)
+2024-09-23 18:24:47,279 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,279 - [cached since 0.4508s ago] ('Tracy', 'Williamson', '1866-03-11', 'Port Judithborough')
+2024-09-23 18:24:47,281 - COMMIT
+2024-09-23 18:24:47,287 - BEGIN (implicit)
+2024-09-23 18:24:47,287 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,287 - [cached since 0.4591s ago] ('Kevin', 'Young', '1935-08-20', 'Port Nicoletown')
+2024-09-23 18:24:47,289 - COMMIT
+2024-09-23 18:24:47,295 - BEGIN (implicit)
+2024-09-23 18:24:47,295 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,295 - [cached since 0.4673s ago] ('Tyler', 'Ryan', '1898-01-17', 'North Jerry')
+2024-09-23 18:24:47,297 - COMMIT
+2024-09-23 18:24:47,303 - BEGIN (implicit)
+2024-09-23 18:24:47,304 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,304 - [cached since 0.4759s ago] ('Matthew', 'Williams', '1876-04-23', 'North Howard')
+2024-09-23 18:24:47,306 - COMMIT
+2024-09-23 18:24:47,311 - BEGIN (implicit)
+2024-09-23 18:24:47,312 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,312 - [cached since 0.4839s ago] ('Sarah', 'Reynolds', '1840-04-18', 'Lake Teresa')
+2024-09-23 18:24:47,314 - COMMIT
+2024-09-23 18:24:47,320 - BEGIN (implicit)
+2024-09-23 18:24:47,320 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,320 - [cached since 0.4918s ago] ('Stephanie', 'Harris', '1884-12-24', 'Hallborough')
+2024-09-23 18:24:47,322 - COMMIT
+2024-09-23 18:24:47,328 - BEGIN (implicit)
+2024-09-23 18:24:47,328 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,329 - [cached since 0.5005s ago] ('Cynthia', 'Rodriguez', '1940-01-18', 'Butlerchester')
+2024-09-23 18:24:47,331 - COMMIT
+2024-09-23 18:24:47,339 - BEGIN (implicit)
+2024-09-23 18:24:47,340 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,340 - [cached since 0.5115s ago] ('Tyler', 'Sanders', '1927-08-25', 'Lake Stevenshire')
+2024-09-23 18:24:47,342 - COMMIT
+2024-09-23 18:24:47,349 - BEGIN (implicit)
+2024-09-23 18:24:47,349 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,349 - [cached since 0.5211s ago] ('Carla', 'Mcbride', '1894-02-03', 'Jessicaburgh')
+2024-09-23 18:24:47,352 - COMMIT
+2024-09-23 18:24:47,359 - BEGIN (implicit)
+2024-09-23 18:24:47,359 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,360 - [cached since 0.5314s ago] ('Nicole', 'Mcguire', '1825-11-20', 'Nathanstad')
+2024-09-23 18:24:47,361 - COMMIT
+2024-09-23 18:24:47,368 - BEGIN (implicit)
+2024-09-23 18:24:47,368 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,368 - [cached since 0.5403s ago] ('Betty', 'Lara', '1984-11-16', 'Port Bethanyton')
+2024-09-23 18:24:47,371 - COMMIT
+2024-09-23 18:24:47,377 - BEGIN (implicit)
+2024-09-23 18:24:47,377 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,377 - [cached since 0.5492s ago] ('George', 'Salazar', '1954-02-19', 'Karlmouth')
+2024-09-23 18:24:47,380 - COMMIT
+2024-09-23 18:24:47,386 - BEGIN (implicit)
+2024-09-23 18:24:47,386 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,386 - [cached since 0.5581s ago] ('Stephen', 'Simpson', '1956-06-28', 'Hopkinsmouth')
+2024-09-23 18:24:47,388 - COMMIT
+2024-09-23 18:24:47,394 - BEGIN (implicit)
+2024-09-23 18:24:47,394 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,394 - [cached since 0.5663s ago] ('Hannah', 'Cox', '1823-09-27', 'Robertstad')
+2024-09-23 18:24:47,397 - COMMIT
+2024-09-23 18:24:47,404 - BEGIN (implicit)
+2024-09-23 18:24:47,404 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,404 - [cached since 0.5761s ago] ('Steven', 'Oneill', '1910-07-01', 'South Lorettafort')
+2024-09-23 18:24:47,406 - COMMIT
+2024-09-23 18:24:47,412 - BEGIN (implicit)
+2024-09-23 18:24:47,412 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,412 - [cached since 0.5843s ago] ('Jeffrey', 'Bryant', '1962-09-15', 'Lake Jeffrey')
+2024-09-23 18:24:47,414 - COMMIT
+2024-09-23 18:24:47,421 - BEGIN (implicit)
+2024-09-23 18:24:47,422 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,422 - [cached since 0.5939s ago] ('Catherine', 'David', '1938-04-01', 'Port Shelby')
+2024-09-23 18:24:47,424 - COMMIT
+2024-09-23 18:24:47,430 - BEGIN (implicit)
+2024-09-23 18:24:47,430 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,430 - [cached since 0.6022s ago] ('Lisa', 'Davis', '1863-01-05', 'Shaneville')
+2024-09-23 18:24:47,432 - COMMIT
+2024-09-23 18:24:47,438 - BEGIN (implicit)
+2024-09-23 18:24:47,438 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,438 - [cached since 0.61s ago] ('Sara', 'Harris', '1898-02-07', 'Kevinborough')
+2024-09-23 18:24:47,440 - COMMIT
+2024-09-23 18:24:47,445 - BEGIN (implicit)
+2024-09-23 18:24:47,446 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,446 - [cached since 0.6178s ago] ('Christopher', 'James', '2004-01-03', 'Danielshire')
+2024-09-23 18:24:47,448 - COMMIT
+2024-09-23 18:24:47,453 - BEGIN (implicit)
+2024-09-23 18:24:47,454 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,454 - [cached since 0.626s ago] ('Felicia', 'Garcia', '1980-08-11', 'Robertsville')
+2024-09-23 18:24:47,456 - COMMIT
+2024-09-23 18:24:47,462 - BEGIN (implicit)
+2024-09-23 18:24:47,462 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,462 - [cached since 0.6345s ago] ('Jason', 'Green', '1919-10-01', 'South Beverlystad')
+2024-09-23 18:24:47,465 - COMMIT
+2024-09-23 18:24:47,471 - BEGIN (implicit)
+2024-09-23 18:24:47,471 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,472 - [cached since 0.6436s ago] ('Leslie', 'Mason', '1906-07-15', 'West Kimberlyhaven')
+2024-09-23 18:24:47,473 - COMMIT
+2024-09-23 18:24:47,480 - BEGIN (implicit)
+2024-09-23 18:24:47,480 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,480 - [cached since 0.6523s ago] ('Maria', 'Barnett', '1887-07-03', 'Danielshire')
+2024-09-23 18:24:47,482 - COMMIT
+2024-09-23 18:24:47,488 - BEGIN (implicit)
+2024-09-23 18:24:47,489 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,489 - [cached since 0.6611s ago] ('Tracy', 'Robinson', '1824-03-04', 'Whiteview')
+2024-09-23 18:24:47,491 - COMMIT
+2024-09-23 18:24:47,497 - BEGIN (implicit)
+2024-09-23 18:24:47,497 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,498 - [cached since 0.6701s ago] ('Donald', 'Harris', '1948-10-31', 'New Lindachester')
+2024-09-23 18:24:47,499 - COMMIT
+2024-09-23 18:24:47,505 - BEGIN (implicit)
+2024-09-23 18:24:47,506 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,506 - [cached since 0.6785s ago] ('Terrance', 'Cobb', '1945-12-24', 'North Desireeburgh')
+2024-09-23 18:24:47,508 - COMMIT
+2024-09-23 18:24:47,514 - BEGIN (implicit)
+2024-09-23 18:24:47,515 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,515 - [cached since 0.6875s ago] ('Christopher', 'Marsh', '1850-04-15', 'Esparzaburgh')
+2024-09-23 18:24:47,517 - COMMIT
+2024-09-23 18:24:47,524 - BEGIN (implicit)
+2024-09-23 18:24:47,525 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,525 - [cached since 0.6975s ago] ('Angela', 'Johnson', '1889-12-08', 'East Jessicaland')
+2024-09-23 18:24:47,527 - COMMIT
+2024-09-23 18:24:47,533 - BEGIN (implicit)
+2024-09-23 18:24:47,533 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,533 - [cached since 0.7057s ago] ('Jesus', 'Kelly', '1912-10-05', 'Quinntown')
+2024-09-23 18:24:47,535 - COMMIT
+2024-09-23 18:24:47,541 - BEGIN (implicit)
+2024-09-23 18:24:47,542 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,542 - [cached since 0.7144s ago] ('Timothy', 'Brown', '1953-10-19', 'Carolineville')
+2024-09-23 18:24:47,544 - COMMIT
+2024-09-23 18:24:47,550 - BEGIN (implicit)
+2024-09-23 18:24:47,551 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,551 - [cached since 0.7232s ago] ('Jennifer', 'Waller', '2011-04-02', 'Manningbury')
+2024-09-23 18:24:47,552 - COMMIT
+2024-09-23 18:24:47,558 - BEGIN (implicit)
+2024-09-23 18:24:47,559 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,559 - [cached since 0.7315s ago] ('Charles', 'Delgado', '1908-05-11', 'Jennifertown')
+2024-09-23 18:24:47,561 - COMMIT
+2024-09-23 18:24:47,567 - BEGIN (implicit)
+2024-09-23 18:24:47,567 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,567 - [cached since 0.7397s ago] ('Richard', 'Wright', '1910-09-09', 'Susanport')
+2024-09-23 18:24:47,569 - COMMIT
+2024-09-23 18:24:47,575 - BEGIN (implicit)
+2024-09-23 18:24:47,575 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,575 - [cached since 0.7477s ago] ('John', 'Quinn', '1851-07-24', 'Kimstad')
+2024-09-23 18:24:47,577 - COMMIT
+2024-09-23 18:24:47,583 - BEGIN (implicit)
+2024-09-23 18:24:47,583 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,583 - [cached since 0.7559s ago] ('John', 'Mitchell', '1841-02-21', 'East Christopherborough')
+2024-09-23 18:24:47,585 - COMMIT
+2024-09-23 18:24:47,591 - BEGIN (implicit)
+2024-09-23 18:24:47,592 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,592 - [cached since 0.7646s ago] ('Elizabeth', 'Martinez', '1911-12-12', 'Lake Sarah')
+2024-09-23 18:24:47,595 - COMMIT
+2024-09-23 18:24:47,600 - BEGIN (implicit)
+2024-09-23 18:24:47,601 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,601 - [cached since 0.7731s ago] ('Dana', 'Keller', '1933-04-08', 'North Antonioberg')
+2024-09-23 18:24:47,603 - COMMIT
+2024-09-23 18:24:47,610 - BEGIN (implicit)
+2024-09-23 18:24:47,610 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,611 - [cached since 0.7826s ago] ('John', 'Taylor', '1904-04-27', 'West Dianeshire')
+2024-09-23 18:24:47,613 - COMMIT
+2024-09-23 18:24:47,620 - BEGIN (implicit)
+2024-09-23 18:24:47,620 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,620 - [cached since 0.7923s ago] ('James', 'Conner', '1971-03-25', 'Port Jennifer')
+2024-09-23 18:24:47,622 - COMMIT
+2024-09-23 18:24:47,628 - BEGIN (implicit)
+2024-09-23 18:24:47,629 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,629 - [cached since 0.8009s ago] ('Wesley', 'Gilmore', '1963-08-20', 'Russellburgh')
+2024-09-23 18:24:47,631 - COMMIT
+2024-09-23 18:24:47,637 - BEGIN (implicit)
+2024-09-23 18:24:47,638 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,638 - [cached since 0.8103s ago] ('Clifford', 'Madden', '1891-10-13', 'Kellyfort')
+2024-09-23 18:24:47,640 - COMMIT
+2024-09-23 18:24:47,648 - BEGIN (implicit)
+2024-09-23 18:24:47,649 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,649 - [cached since 0.8211s ago] ('Randy', 'Solomon', '1851-10-12', 'East Scott')
+2024-09-23 18:24:47,651 - COMMIT
+2024-09-23 18:24:47,658 - BEGIN (implicit)
+2024-09-23 18:24:47,658 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,658 - [cached since 0.8306s ago] ('Kim', 'Peterson', '1933-07-04', 'Lake Jeffberg')
+2024-09-23 18:24:47,661 - COMMIT
+2024-09-23 18:24:47,669 - BEGIN (implicit)
+2024-09-23 18:24:47,669 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,670 - [cached since 0.8416s ago] ('Jessica', 'Green', '1991-01-25', 'Karashire')
+2024-09-23 18:24:47,671 - COMMIT
+2024-09-23 18:24:47,678 - BEGIN (implicit)
+2024-09-23 18:24:47,679 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,679 - [cached since 0.8512s ago] ('Colleen', 'Charles', '1900-09-25', 'South Christopher')
+2024-09-23 18:24:47,681 - COMMIT
+2024-09-23 18:24:47,689 - BEGIN (implicit)
+2024-09-23 18:24:47,690 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,690 - [cached since 0.8623s ago] ('Joshua', 'Espinoza', '1847-03-04', 'Alyssamouth')
+2024-09-23 18:24:47,693 - COMMIT
+2024-09-23 18:24:47,701 - BEGIN (implicit)
+2024-09-23 18:24:47,701 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,701 - [cached since 0.8729s ago] ('Jose', 'Hines', '1956-02-16', 'Saraburgh')
+2024-09-23 18:24:47,703 - COMMIT
+2024-09-23 18:24:47,710 - BEGIN (implicit)
+2024-09-23 18:24:47,711 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,711 - [cached since 0.8828s ago] ('Robert', 'Johnson', '1888-02-08', 'Hectorview')
+2024-09-23 18:24:47,714 - COMMIT
+2024-09-23 18:24:47,720 - BEGIN (implicit)
+2024-09-23 18:24:47,721 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,721 - [cached since 0.8927s ago] ('Tracey', 'Brown', '1833-06-25', 'New Jacob')
+2024-09-23 18:24:47,723 - COMMIT
+2024-09-23 18:24:47,730 - BEGIN (implicit)
+2024-09-23 18:24:47,731 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,731 - [cached since 0.9026s ago] ('Katie', 'Aguirre', '1866-03-12', 'Leeshire')
+2024-09-23 18:24:47,733 - COMMIT
+2024-09-23 18:24:47,740 - BEGIN (implicit)
+2024-09-23 18:24:47,740 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,740 - [cached since 0.912s ago] ('Frank', 'Tyler', '2004-03-28', 'Darrenton')
+2024-09-23 18:24:47,743 - COMMIT
+2024-09-23 18:24:47,750 - BEGIN (implicit)
+2024-09-23 18:24:47,750 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,750 - [cached since 0.9221s ago] ('Brandon', 'Middleton', '1946-06-25', 'South Kennethmouth')
+2024-09-23 18:24:47,752 - COMMIT
+2024-09-23 18:24:47,760 - BEGIN (implicit)
+2024-09-23 18:24:47,761 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,761 - [cached since 0.9328s ago] ('Olivia', 'Sanchez', '1914-07-30', 'South Jacob')
+2024-09-23 18:24:47,763 - COMMIT
+2024-09-23 18:24:47,768 - BEGIN (implicit)
+2024-09-23 18:24:47,769 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,769 - [cached since 0.9405s ago] ('Benjamin', 'Robinson', '1944-05-18', 'Lake Henry')
+2024-09-23 18:24:47,771 - COMMIT
+2024-09-23 18:24:47,778 - BEGIN (implicit)
+2024-09-23 18:24:47,778 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,778 - [cached since 0.9501s ago] ('Mary', 'Grant', '1981-05-26', 'West Justin')
+2024-09-23 18:24:47,781 - COMMIT
+2024-09-23 18:24:47,793 - BEGIN (implicit)
+2024-09-23 18:24:47,793 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,793 - [cached since 0.9656s ago] ('Mark', 'Rice', '1977-09-20', 'Espinozaport')
+2024-09-23 18:24:47,795 - COMMIT
+2024-09-23 18:24:47,802 - BEGIN (implicit)
+2024-09-23 18:24:47,802 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,802 - [cached since 0.9743s ago] ('Catherine', 'Santos', '1989-11-27', 'South Carlostown')
+2024-09-23 18:24:47,804 - COMMIT
+2024-09-23 18:24:47,810 - BEGIN (implicit)
+2024-09-23 18:24:47,811 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,811 - [cached since 0.9831s ago] ('Robert', 'Mcgee', '1968-05-10', 'Westtown')
+2024-09-23 18:24:47,813 - COMMIT
+2024-09-23 18:24:47,819 - BEGIN (implicit)
+2024-09-23 18:24:47,820 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,820 - [cached since 0.9922s ago] ('William', 'Smith', '1949-11-18', 'Michelefort')
+2024-09-23 18:24:47,822 - COMMIT
+2024-09-23 18:24:47,829 - BEGIN (implicit)
+2024-09-23 18:24:47,829 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,830 - [cached since 1.002s ago] ('Sandra', 'Mccormick', '1993-12-05', 'Lake Melissa')
+2024-09-23 18:24:47,832 - COMMIT
+2024-09-23 18:24:47,838 - BEGIN (implicit)
+2024-09-23 18:24:47,839 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,839 - [cached since 1.011s ago] ('George', 'Taylor', '1833-10-04', 'Jonesberg')
+2024-09-23 18:24:47,842 - COMMIT
+2024-09-23 18:24:47,847 - BEGIN (implicit)
+2024-09-23 18:24:47,848 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,848 - [cached since 1.02s ago] ('Henry', 'Mcdonald', '1838-06-06', 'Port Juliamouth')
+2024-09-23 18:24:47,850 - COMMIT
+2024-09-23 18:24:47,861 - BEGIN (implicit)
+2024-09-23 18:24:47,862 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,862 - [cached since 1.034s ago] ('Charles', 'Green', '1841-02-25', 'Lindsayberg')
+2024-09-23 18:24:47,864 - COMMIT
+2024-09-23 18:24:47,869 - BEGIN (implicit)
+2024-09-23 18:24:47,870 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,870 - [cached since 1.042s ago] ('Scott', 'Williams', '1945-08-14', 'Lake Bridgetfort')
+2024-09-23 18:24:47,872 - COMMIT
+2024-09-23 18:24:47,878 - BEGIN (implicit)
+2024-09-23 18:24:47,879 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,879 - [cached since 1.051s ago] ('Nicholas', 'Velasquez', '1928-11-13', 'East Marissa')
+2024-09-23 18:24:47,881 - COMMIT
+2024-09-23 18:24:47,887 - BEGIN (implicit)
+2024-09-23 18:24:47,887 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,887 - [cached since 1.06s ago] ('Katherine', 'Patton', '1901-07-23', 'Lake Lauriefort')
+2024-09-23 18:24:47,889 - COMMIT
+2024-09-23 18:24:47,896 - BEGIN (implicit)
+2024-09-23 18:24:47,897 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,897 - [cached since 1.069s ago] ('Stephen', 'Caldwell', '1946-08-01', 'Lanemouth')
+2024-09-23 18:24:47,899 - COMMIT
+2024-09-23 18:24:47,905 - BEGIN (implicit)
+2024-09-23 18:24:47,905 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,905 - [cached since 1.077s ago] ('Elizabeth', 'Murphy', '2007-12-29', 'Veronicaview')
+2024-09-23 18:24:47,907 - COMMIT
+2024-09-23 18:24:47,914 - BEGIN (implicit)
+2024-09-23 18:24:47,914 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,914 - [cached since 1.086s ago] ('Ricardo', 'Pacheco', '1909-02-18', 'Glennborough')
+2024-09-23 18:24:47,916 - COMMIT
+2024-09-23 18:24:47,922 - BEGIN (implicit)
+2024-09-23 18:24:47,922 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,922 - [cached since 1.094s ago] ('Fernando', 'Howell', '1955-02-24', 'West Thomasburgh')
+2024-09-23 18:24:47,925 - COMMIT
+2024-09-23 18:24:47,931 - BEGIN (implicit)
+2024-09-23 18:24:47,931 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,931 - [cached since 1.103s ago] ('Michael', 'Freeman', '1923-07-04', 'Mcconnelltown')
+2024-09-23 18:24:47,933 - COMMIT
+2024-09-23 18:24:47,939 - BEGIN (implicit)
+2024-09-23 18:24:47,940 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,940 - [cached since 1.112s ago] ('Mark', 'Brooks', '1889-09-09', 'New David')
+2024-09-23 18:24:47,942 - COMMIT
+2024-09-23 18:24:47,949 - BEGIN (implicit)
+2024-09-23 18:24:47,949 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,949 - [cached since 1.121s ago] ('Jorge', 'Ali', '1938-03-04', 'Joseview')
+2024-09-23 18:24:47,951 - COMMIT
+2024-09-23 18:24:47,958 - BEGIN (implicit)
+2024-09-23 18:24:47,959 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,959 - [cached since 1.131s ago] ('Kevin', 'Garcia', '1829-01-03', 'West Jacksontown')
+2024-09-23 18:24:47,961 - COMMIT
+2024-09-23 18:24:47,967 - BEGIN (implicit)
+2024-09-23 18:24:47,967 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,968 - [cached since 1.139s ago] ('Kristin', 'Wiley', '1888-08-13', 'West Donna')
+2024-09-23 18:24:47,969 - COMMIT
+2024-09-23 18:24:47,976 - BEGIN (implicit)
+2024-09-23 18:24:47,976 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,976 - [cached since 1.148s ago] ('Danielle', 'Harmon', '1898-08-23', 'North Evelyn')
+2024-09-23 18:24:47,978 - COMMIT
+2024-09-23 18:24:47,984 - BEGIN (implicit)
+2024-09-23 18:24:47,984 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,984 - [cached since 1.156s ago] ('Kevin', 'Forbes', '1861-05-29', 'Mooremouth')
+2024-09-23 18:24:47,986 - COMMIT
+2024-09-23 18:24:47,992 - BEGIN (implicit)
+2024-09-23 18:24:47,993 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:47,993 - [cached since 1.165s ago] ('Patrick', 'Wiggins', '1935-01-09', 'Port Ashlee')
+2024-09-23 18:24:47,994 - COMMIT
+2024-09-23 18:24:48,000 - BEGIN (implicit)
+2024-09-23 18:24:48,001 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,001 - [cached since 1.173s ago] ('Yesenia', 'Smith', '1854-03-16', 'Loveland')
+2024-09-23 18:24:48,003 - COMMIT
+2024-09-23 18:24:48,009 - BEGIN (implicit)
+2024-09-23 18:24:48,009 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,009 - [cached since 1.182s ago] ('Jeffrey', 'Cruz', '1904-12-08', 'North Darrellchester')
+2024-09-23 18:24:48,011 - COMMIT
+2024-09-23 18:24:48,017 - BEGIN (implicit)
+2024-09-23 18:24:48,018 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,018 - [cached since 1.19s ago] ('James', 'Andrews', '1883-06-22', 'North Catherinestad')
+2024-09-23 18:24:48,020 - COMMIT
+2024-09-23 18:24:48,026 - BEGIN (implicit)
+2024-09-23 18:24:48,026 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,026 - [cached since 1.199s ago] ('Laura', 'Sheppard', '1953-07-18', 'Robertmouth')
+2024-09-23 18:24:48,028 - COMMIT
+2024-09-23 18:24:48,033 - BEGIN (implicit)
+2024-09-23 18:24:48,034 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,034 - [cached since 1.206s ago] ('Candace', 'Chapman', '1888-12-11', 'Wilsontown')
+2024-09-23 18:24:48,036 - COMMIT
+2024-09-23 18:24:48,042 - BEGIN (implicit)
+2024-09-23 18:24:48,043 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,043 - [cached since 1.215s ago] ('Joseph', 'Fisher', '1838-02-10', 'Port Susan')
+2024-09-23 18:24:48,045 - COMMIT
+2024-09-23 18:24:48,052 - BEGIN (implicit)
+2024-09-23 18:24:48,053 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,053 - [cached since 1.225s ago] ('Thomas', 'Jones', '2013-12-05', 'East Maria')
+2024-09-23 18:24:48,056 - COMMIT
+2024-09-23 18:24:48,063 - BEGIN (implicit)
+2024-09-23 18:24:48,063 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,063 - [cached since 1.236s ago] ('Lynn', 'Henderson', '1993-09-19', 'Meganmouth')
+2024-09-23 18:24:48,065 - COMMIT
+2024-09-23 18:24:48,072 - BEGIN (implicit)
+2024-09-23 18:24:48,073 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,073 - [cached since 1.245s ago] ('Scott', 'Brooks', '1931-05-17', 'Williamview')
+2024-09-23 18:24:48,075 - COMMIT
+2024-09-23 18:24:48,082 - BEGIN (implicit)
+2024-09-23 18:24:48,082 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,082 - [cached since 1.255s ago] ('Stephanie', 'French', '1986-06-17', 'Millerport')
+2024-09-23 18:24:48,084 - COMMIT
+2024-09-23 18:24:48,091 - BEGIN (implicit)
+2024-09-23 18:24:48,091 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,091 - [cached since 1.264s ago] ('Loretta', 'Silva', '2007-02-27', 'Port Jesse')
+2024-09-23 18:24:48,093 - COMMIT
+2024-09-23 18:24:48,099 - BEGIN (implicit)
+2024-09-23 18:24:48,100 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,100 - [cached since 1.272s ago] ('Madison', 'Moon', '1871-12-12', 'Bethhaven')
+2024-09-23 18:24:48,101 - COMMIT
+2024-09-23 18:24:48,108 - BEGIN (implicit)
+2024-09-23 18:24:48,108 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,109 - [cached since 1.281s ago] ('Ashley', 'Christensen', '1981-01-03', 'South Aaronside')
+2024-09-23 18:24:48,110 - COMMIT
+2024-09-23 18:24:48,116 - BEGIN (implicit)
+2024-09-23 18:24:48,117 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,117 - [cached since 1.289s ago] ('Kara', 'Smith', '1909-12-16', 'Lake Erica')
+2024-09-23 18:24:48,119 - COMMIT
+2024-09-23 18:24:48,125 - BEGIN (implicit)
+2024-09-23 18:24:48,125 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,125 - [cached since 1.298s ago] ('Martha', 'Stewart', '1968-09-06', 'Nicoleberg')
+2024-09-23 18:24:48,127 - COMMIT
+2024-09-23 18:24:48,133 - BEGIN (implicit)
+2024-09-23 18:24:48,133 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,133 - [cached since 1.306s ago] ('Evan', 'Saunders', '1919-07-08', 'South Jessica')
+2024-09-23 18:24:48,135 - COMMIT
+2024-09-23 18:24:48,142 - BEGIN (implicit)
+2024-09-23 18:24:48,142 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,142 - [cached since 1.315s ago] ('Scott', 'Wood', '1924-11-12', 'East Matthewport')
+2024-09-23 18:24:48,144 - COMMIT
+2024-09-23 18:24:48,150 - BEGIN (implicit)
+2024-09-23 18:24:48,150 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,151 - [cached since 1.323s ago] ('Brenda', 'Clark', '1959-12-26', 'Port Jasonland')
+2024-09-23 18:24:48,152 - COMMIT
+2024-09-23 18:24:48,159 - BEGIN (implicit)
+2024-09-23 18:24:48,159 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,160 - [cached since 1.332s ago] ('Tyler', 'Wade', '1936-10-06', 'Jasonshire')
+2024-09-23 18:24:48,162 - COMMIT
+2024-09-23 18:24:48,168 - BEGIN (implicit)
+2024-09-23 18:24:48,168 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,168 - [cached since 1.341s ago] ('Nicole', 'Brown', '1919-03-10', 'North Micheletown')
+2024-09-23 18:24:48,170 - COMMIT
+2024-09-23 18:24:48,177 - BEGIN (implicit)
+2024-09-23 18:24:48,177 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,178 - [cached since 1.35s ago] ('Allen', 'West', '1958-05-23', 'Megantown')
+2024-09-23 18:24:48,179 - COMMIT
+2024-09-23 18:24:48,185 - BEGIN (implicit)
+2024-09-23 18:24:48,185 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,185 - [cached since 1.358s ago] ('Jose', 'Rollins', '1825-09-15', 'Sanchezburgh')
+2024-09-23 18:24:48,187 - COMMIT
+2024-09-23 18:24:48,194 - BEGIN (implicit)
+2024-09-23 18:24:48,195 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,195 - [cached since 1.367s ago] ('Patrick', 'Ward', '1853-01-31', 'Justintown')
+2024-09-23 18:24:48,203 - COMMIT
+2024-09-23 18:24:48,209 - BEGIN (implicit)
+2024-09-23 18:24:48,210 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,210 - [cached since 1.382s ago] ('Christopher', 'Estrada', '1864-07-04', 'Hutchinsontown')
+2024-09-23 18:24:48,212 - COMMIT
+2024-09-23 18:24:48,218 - BEGIN (implicit)
+2024-09-23 18:24:48,218 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,218 - [cached since 1.39s ago] ('Robert', 'Briggs', '1884-11-02', 'South Christopher')
+2024-09-23 18:24:48,220 - COMMIT
+2024-09-23 18:24:48,226 - BEGIN (implicit)
+2024-09-23 18:24:48,227 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,227 - [cached since 1.399s ago] ('Dean', 'Evans', '2008-11-16', 'Stephanieshire')
+2024-09-23 18:24:48,229 - COMMIT
+2024-09-23 18:24:48,235 - BEGIN (implicit)
+2024-09-23 18:24:48,235 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,235 - [cached since 1.407s ago] ('Ryan', 'Smith', '1877-09-17', 'South Charles')
+2024-09-23 18:24:48,237 - COMMIT
+2024-09-23 18:24:48,244 - BEGIN (implicit)
+2024-09-23 18:24:48,244 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,244 - [cached since 1.416s ago] ('Laurie', 'Flynn', '1915-05-17', 'Michelletown')
+2024-09-23 18:24:48,246 - COMMIT
+2024-09-23 18:24:48,252 - BEGIN (implicit)
+2024-09-23 18:24:48,252 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,252 - [cached since 1.424s ago] ('Terri', 'Davis', '1846-01-20', 'North Jenniferchester')
+2024-09-23 18:24:48,254 - COMMIT
+2024-09-23 18:24:48,261 - BEGIN (implicit)
+2024-09-23 18:24:48,261 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,261 - [cached since 1.433s ago] ('Jessica', 'Gutierrez', '1908-08-17', 'Sloanport')
+2024-09-23 18:24:48,263 - COMMIT
+2024-09-23 18:24:48,269 - BEGIN (implicit)
+2024-09-23 18:24:48,269 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,269 - [cached since 1.441s ago] ('Bradley', 'Collins', '1944-03-30', 'North Juanside')
+2024-09-23 18:24:48,271 - COMMIT
+2024-09-23 18:24:48,278 - BEGIN (implicit)
+2024-09-23 18:24:48,278 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,278 - [cached since 1.45s ago] ('Frances', 'Miller', '1974-09-02', 'Jeffreyfort')
+2024-09-23 18:24:48,280 - COMMIT
+2024-09-23 18:24:48,286 - BEGIN (implicit)
+2024-09-23 18:24:48,287 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,287 - [cached since 1.459s ago] ('Scott', 'White', '1835-01-15', 'Reedland')
+2024-09-23 18:24:48,289 - COMMIT
+2024-09-23 18:24:48,296 - BEGIN (implicit)
+2024-09-23 18:24:48,296 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,297 - [cached since 1.468s ago] ('Emily', 'Graham', '1928-11-12', 'South Jerry')
+2024-09-23 18:24:48,298 - COMMIT
+2024-09-23 18:24:48,304 - BEGIN (implicit)
+2024-09-23 18:24:48,305 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,305 - [cached since 1.477s ago] ('Lindsay', 'Adams', '1897-12-23', 'New Alexandrashire')
+2024-09-23 18:24:48,307 - COMMIT
+2024-09-23 18:24:48,313 - BEGIN (implicit)
+2024-09-23 18:24:48,313 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,313 - [cached since 1.485s ago] ('Walter', 'Nolan', '1909-01-01', 'East Cynthia')
+2024-09-23 18:24:48,315 - COMMIT
+2024-09-23 18:24:48,321 - BEGIN (implicit)
+2024-09-23 18:24:48,321 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,322 - [cached since 1.493s ago] ('Kathy', 'Black', '2012-06-06', 'Chelseahaven')
+2024-09-23 18:24:48,324 - COMMIT
+2024-09-23 18:24:48,330 - BEGIN (implicit)
+2024-09-23 18:24:48,330 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,330 - [cached since 1.502s ago] ('Robert', 'Williams', '1994-03-06', 'Port Lisastad')
+2024-09-23 18:24:48,332 - COMMIT
+2024-09-23 18:24:48,338 - BEGIN (implicit)
+2024-09-23 18:24:48,339 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,339 - [cached since 1.511s ago] ('Trevor', 'Beasley', '1992-01-05', 'Natashamouth')
+2024-09-23 18:24:48,341 - COMMIT
+2024-09-23 18:24:48,347 - BEGIN (implicit)
+2024-09-23 18:24:48,347 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,347 - [cached since 1.519s ago] ('Tracy', 'Guzman', '1966-09-10', 'Port Austintown')
+2024-09-23 18:24:48,349 - COMMIT
+2024-09-23 18:24:48,355 - BEGIN (implicit)
+2024-09-23 18:24:48,355 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,355 - [cached since 1.527s ago] ('Nicholas', 'Davis', '1854-08-31', 'North Garyville')
+2024-09-23 18:24:48,357 - COMMIT
+2024-09-23 18:24:48,363 - BEGIN (implicit)
+2024-09-23 18:24:48,363 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,363 - [cached since 1.535s ago] ('Jerome', 'Harris', '1926-06-03', 'Barnesberg')
+2024-09-23 18:24:48,365 - COMMIT
+2024-09-23 18:24:48,371 - BEGIN (implicit)
+2024-09-23 18:24:48,372 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,372 - [cached since 1.544s ago] ('Pamela', 'Jenkins', '1999-09-04', 'Bauerton')
+2024-09-23 18:24:48,374 - COMMIT
+2024-09-23 18:24:48,380 - BEGIN (implicit)
+2024-09-23 18:24:48,380 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,380 - [cached since 1.552s ago] ('Andrew', 'Oliver', '1826-12-25', 'North Maria')
+2024-09-23 18:24:48,382 - COMMIT
+2024-09-23 18:24:48,388 - BEGIN (implicit)
+2024-09-23 18:24:48,388 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,388 - [cached since 1.56s ago] ('Mark', 'Stout', '1833-10-17', 'Lake Amber')
+2024-09-23 18:24:48,391 - COMMIT
+2024-09-23 18:24:48,398 - BEGIN (implicit)
+2024-09-23 18:24:48,399 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,399 - [cached since 1.571s ago] ('Eric', 'Thomas', '1979-07-28', 'New Jeremy')
+2024-09-23 18:24:48,401 - COMMIT
+2024-09-23 18:24:48,408 - BEGIN (implicit)
+2024-09-23 18:24:48,408 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,408 - [cached since 1.58s ago] ('Jennifer', 'Cain', '1871-04-17', 'Randolphview')
+2024-09-23 18:24:48,411 - COMMIT
+2024-09-23 18:24:48,417 - BEGIN (implicit)
+2024-09-23 18:24:48,418 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,418 - [cached since 1.59s ago] ('Derek', 'Conrad', '1984-07-08', 'Port Scott')
+2024-09-23 18:24:48,421 - COMMIT
+2024-09-23 18:24:48,427 - BEGIN (implicit)
+2024-09-23 18:24:48,428 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,428 - [cached since 1.6s ago] ('Rachel', 'Johnson', '1838-09-30', 'Lake Rachelview')
+2024-09-23 18:24:48,431 - COMMIT
+2024-09-23 18:24:48,438 - BEGIN (implicit)
+2024-09-23 18:24:48,438 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,438 - [cached since 1.611s ago] ('Katherine', 'Ray', '1899-03-26', 'Fernandoburgh')
+2024-09-23 18:24:48,441 - COMMIT
+2024-09-23 18:24:48,447 - BEGIN (implicit)
+2024-09-23 18:24:48,448 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,448 - [cached since 1.62s ago] ('Felicia', 'Robertson', '1831-04-26', 'Jonathanberg')
+2024-09-23 18:24:48,450 - COMMIT
+2024-09-23 18:24:48,456 - BEGIN (implicit)
+2024-09-23 18:24:48,456 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,457 - [cached since 1.629s ago] ('Theodore', 'Andrews', '1844-09-11', 'Leeside')
+2024-09-23 18:24:48,459 - COMMIT
+2024-09-23 18:24:48,465 - BEGIN (implicit)
+2024-09-23 18:24:48,466 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,466 - [cached since 1.638s ago] ('Ryan', 'Mooney', '1854-06-24', 'Marqueztown')
+2024-09-23 18:24:48,468 - COMMIT
+2024-09-23 18:24:48,474 - BEGIN (implicit)
+2024-09-23 18:24:48,474 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,475 - [cached since 1.647s ago] ('Brett', 'Hall', '1856-03-31', 'Lake Melissa')
+2024-09-23 18:24:48,477 - COMMIT
+2024-09-23 18:24:48,483 - BEGIN (implicit)
+2024-09-23 18:24:48,483 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,483 - [cached since 1.656s ago] ('Jeremiah', 'Diaz', '1879-11-10', 'Jensentown')
+2024-09-23 18:24:48,485 - COMMIT
+2024-09-23 18:24:48,492 - BEGIN (implicit)
+2024-09-23 18:24:48,492 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,492 - [cached since 1.665s ago] ('James', 'Taylor', '1866-12-12', 'Michaelton')
+2024-09-23 18:24:48,495 - COMMIT
+2024-09-23 18:24:48,501 - BEGIN (implicit)
+2024-09-23 18:24:48,502 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,502 - [cached since 1.674s ago] ('Alexis', 'West', '1930-09-24', 'Port Codyborough')
+2024-09-23 18:24:48,504 - COMMIT
+2024-09-23 18:24:48,511 - BEGIN (implicit)
+2024-09-23 18:24:48,511 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,511 - [cached since 1.683s ago] ('Ann', 'Gray', '1886-11-22', 'Youngtown')
+2024-09-23 18:24:48,513 - COMMIT
+2024-09-23 18:24:48,519 - BEGIN (implicit)
+2024-09-23 18:24:48,519 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,519 - [cached since 1.691s ago] ('Carolyn', 'Winters', '1857-08-13', 'New Megan')
+2024-09-23 18:24:48,521 - COMMIT
+2024-09-23 18:24:48,527 - BEGIN (implicit)
+2024-09-23 18:24:48,528 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,528 - [cached since 1.7s ago] ('Melissa', 'Martin', '1839-11-02', 'East Stephaniemouth')
+2024-09-23 18:24:48,530 - COMMIT
+2024-09-23 18:24:48,537 - BEGIN (implicit)
+2024-09-23 18:24:48,537 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,537 - [cached since 1.709s ago] ('Daniel', 'Cooper', '1972-10-21', 'Pennyview')
+2024-09-23 18:24:48,539 - COMMIT
+2024-09-23 18:24:48,546 - BEGIN (implicit)
+2024-09-23 18:24:48,546 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,546 - [cached since 1.718s ago] ('Paul', 'Weber', '1936-01-08', 'East Kevinview')
+2024-09-23 18:24:48,548 - COMMIT
+2024-09-23 18:24:48,555 - BEGIN (implicit)
+2024-09-23 18:24:48,555 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,555 - [cached since 1.727s ago] ('Joseph', 'Campbell', '1874-04-24', 'Jamesland')
+2024-09-23 18:24:48,557 - COMMIT
+2024-09-23 18:24:48,564 - BEGIN (implicit)
+2024-09-23 18:24:48,564 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,564 - [cached since 1.736s ago] ('Wyatt', 'Thomas', '1870-12-05', 'Nunezview')
+2024-09-23 18:24:48,567 - COMMIT
+2024-09-23 18:24:48,574 - BEGIN (implicit)
+2024-09-23 18:24:48,574 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,574 - [cached since 1.746s ago] ('Michelle', 'Lee', '1947-08-02', 'Smithview')
+2024-09-23 18:24:48,576 - COMMIT
+2024-09-23 18:24:48,582 - BEGIN (implicit)
+2024-09-23 18:24:48,583 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,583 - [cached since 1.755s ago] ('Andrew', 'Hernandez', '2001-09-11', 'Steinton')
+2024-09-23 18:24:48,585 - COMMIT
+2024-09-23 18:24:48,591 - BEGIN (implicit)
+2024-09-23 18:24:48,591 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,591 - [cached since 1.763s ago] ('Annette', 'Browning', '1920-10-02', 'Michaelmouth')
+2024-09-23 18:24:48,593 - COMMIT
+2024-09-23 18:24:48,598 - BEGIN (implicit)
+2024-09-23 18:24:48,599 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,599 - [cached since 1.771s ago] ('Barbara', 'Davis', '2007-04-10', 'North Danny')
+2024-09-23 18:24:48,601 - COMMIT
+2024-09-23 18:24:48,607 - BEGIN (implicit)
+2024-09-23 18:24:48,607 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,607 - [cached since 1.779s ago] ('Joel', 'Sanchez', '1997-04-10', 'Leebury')
+2024-09-23 18:24:48,609 - COMMIT
+2024-09-23 18:24:48,614 - BEGIN (implicit)
+2024-09-23 18:24:48,615 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,615 - [cached since 1.787s ago] ('Kathleen', 'Andrews', '1939-07-17', 'South Caleb')
+2024-09-23 18:24:48,616 - COMMIT
+2024-09-23 18:24:48,622 - BEGIN (implicit)
+2024-09-23 18:24:48,623 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,623 - [cached since 1.795s ago] ('Timothy', 'Sanchez', '1836-04-19', 'North Lisa')
+2024-09-23 18:24:48,625 - COMMIT
+2024-09-23 18:24:48,631 - BEGIN (implicit)
+2024-09-23 18:24:48,632 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,632 - [cached since 1.804s ago] ('Robert', 'Foster', '1977-11-10', 'Reynoldsborough')
+2024-09-23 18:24:48,634 - COMMIT
+2024-09-23 18:24:48,640 - BEGIN (implicit)
+2024-09-23 18:24:48,641 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,641 - [cached since 1.813s ago] ('Janet', 'Franklin', '1959-10-29', 'Brandimouth')
+2024-09-23 18:24:48,643 - COMMIT
+2024-09-23 18:24:48,649 - BEGIN (implicit)
+2024-09-23 18:24:48,650 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,650 - [cached since 1.822s ago] ('Charles', 'Perkins', '1996-06-08', 'Port Christopher')
+2024-09-23 18:24:48,652 - COMMIT
+2024-09-23 18:24:48,658 - BEGIN (implicit)
+2024-09-23 18:24:48,658 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,658 - [cached since 1.83s ago] ('Douglas', 'Larson', '1846-01-15', 'Serranoview')
+2024-09-23 18:24:48,660 - COMMIT
+2024-09-23 18:24:48,666 - BEGIN (implicit)
+2024-09-23 18:24:48,666 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,666 - [cached since 1.838s ago] ('Anthony', 'Campbell', '1955-03-16', 'Karenport')
+2024-09-23 18:24:48,668 - COMMIT
+2024-09-23 18:24:48,674 - BEGIN (implicit)
+2024-09-23 18:24:48,675 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,675 - [cached since 1.847s ago] ('Sarah', 'Cain', '1828-01-22', 'North Kennethstad')
+2024-09-23 18:24:48,677 - COMMIT
+2024-09-23 18:24:48,682 - BEGIN (implicit)
+2024-09-23 18:24:48,683 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,683 - [cached since 1.855s ago] ('Gabriel', 'Weber', '1994-04-15', 'East Michael')
+2024-09-23 18:24:48,685 - COMMIT
+2024-09-23 18:24:48,691 - BEGIN (implicit)
+2024-09-23 18:24:48,691 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,691 - [cached since 1.864s ago] ('Elizabeth', 'Mcdonald', '1976-01-04', 'Marthamouth')
+2024-09-23 18:24:48,693 - COMMIT
+2024-09-23 18:24:48,699 - BEGIN (implicit)
+2024-09-23 18:24:48,699 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,699 - [cached since 1.872s ago] ('Rebecca', 'Robinson', '1971-12-16', 'South Devinland')
+2024-09-23 18:24:48,699 - COMMIT
+2024-09-23 18:24:48,709 - BEGIN (implicit)
+2024-09-23 18:24:48,710 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,710 - [cached since 1.882s ago] ('Charles', 'Cantrell', '1849-08-26', 'West Richardshire')
+2024-09-23 18:24:48,711 - COMMIT
+2024-09-23 18:24:48,718 - BEGIN (implicit)
+2024-09-23 18:24:48,718 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,718 - [cached since 1.89s ago] ('Jonathan', 'Glover', '1883-12-18', 'West Donnaburgh')
+2024-09-23 18:24:48,720 - COMMIT
+2024-09-23 18:24:48,726 - BEGIN (implicit)
+2024-09-23 18:24:48,726 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,726 - [cached since 1.898s ago] ('Crystal', 'Harper', '1954-08-27', 'Port Timothyfurt')
+2024-09-23 18:24:48,728 - COMMIT
+2024-09-23 18:24:48,737 - BEGIN (implicit)
+2024-09-23 18:24:48,738 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,738 - [cached since 1.91s ago] ('Shannon', 'Lynch', '1859-11-22', 'South Jason')
+2024-09-23 18:24:48,740 - COMMIT
+2024-09-23 18:24:48,747 - BEGIN (implicit)
+2024-09-23 18:24:48,747 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,747 - [cached since 1.919s ago] ('Mark', 'Pace', '1884-07-26', 'Lake Erinside')
+2024-09-23 18:24:48,749 - COMMIT
+2024-09-23 18:24:48,756 - BEGIN (implicit)
+2024-09-23 18:24:48,757 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,757 - [cached since 1.929s ago] ('John', 'Ward', '1865-10-26', 'New Brittanystad')
+2024-09-23 18:24:48,759 - COMMIT
+2024-09-23 18:24:48,765 - BEGIN (implicit)
+2024-09-23 18:24:48,765 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,765 - [cached since 1.937s ago] ('Kenneth', 'Arnold', '1986-01-27', 'Port Julieton')
+2024-09-23 18:24:48,767 - COMMIT
+2024-09-23 18:24:48,774 - BEGIN (implicit)
+2024-09-23 18:24:48,774 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,774 - [cached since 1.946s ago] ('Mitchell', 'Nichols', '1940-06-15', 'Leonardfurt')
+2024-09-23 18:24:48,776 - COMMIT
+2024-09-23 18:24:48,782 - BEGIN (implicit)
+2024-09-23 18:24:48,783 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,783 - [cached since 1.955s ago] ('Casey', 'Smith', '1966-05-16', 'Port Veronicastad')
+2024-09-23 18:24:48,785 - COMMIT
+2024-09-23 18:24:48,792 - BEGIN (implicit)
+2024-09-23 18:24:48,792 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,792 - [cached since 1.964s ago] ('Corey', 'Davidson', '1902-02-07', 'Taylorside')
+2024-09-23 18:24:48,794 - COMMIT
+2024-09-23 18:24:48,800 - BEGIN (implicit)
+2024-09-23 18:24:48,800 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,800 - [cached since 1.973s ago] ('Glenn', 'Robinson', '1945-02-13', 'Salinasside')
+2024-09-23 18:24:48,802 - COMMIT
+2024-09-23 18:24:48,808 - BEGIN (implicit)
+2024-09-23 18:24:48,808 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,808 - [cached since 1.981s ago] ('Ralph', 'Pham', '1877-06-06', 'Hallburgh')
+2024-09-23 18:24:48,810 - COMMIT
+2024-09-23 18:24:48,816 - BEGIN (implicit)
+2024-09-23 18:24:48,816 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,816 - [cached since 1.989s ago] ('Heather', 'Morgan', '1857-03-21', 'Port Karenmouth')
+2024-09-23 18:24:48,818 - COMMIT
+2024-09-23 18:24:48,824 - BEGIN (implicit)
+2024-09-23 18:24:48,824 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,824 - [cached since 1.997s ago] ('Veronica', 'Oconnell', '1998-07-10', 'Port Brittanyshire')
+2024-09-23 18:24:48,826 - COMMIT
+2024-09-23 18:24:48,832 - BEGIN (implicit)
+2024-09-23 18:24:48,832 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,833 - [cached since 2.005s ago] ('Chad', 'Howard', '1913-06-04', 'Port Mariatown')
+2024-09-23 18:24:48,834 - COMMIT
+2024-09-23 18:24:48,841 - BEGIN (implicit)
+2024-09-23 18:24:48,841 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,841 - [cached since 2.014s ago] ('Christopher', 'Mendoza', '1856-10-10', 'South David')
+2024-09-23 18:24:48,843 - COMMIT
+2024-09-23 18:24:48,849 - BEGIN (implicit)
+2024-09-23 18:24:48,849 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,849 - [cached since 2.021s ago] ('Sylvia', 'Hernandez', '1884-07-18', 'Phillipsborough')
+2024-09-23 18:24:48,851 - COMMIT
+2024-09-23 18:24:48,857 - BEGIN (implicit)
+2024-09-23 18:24:48,857 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,857 - [cached since 2.03s ago] ('Frank', 'Stanley', '2010-01-02', 'Kimberlyborough')
+2024-09-23 18:24:48,859 - COMMIT
+2024-09-23 18:24:48,866 - BEGIN (implicit)
+2024-09-23 18:24:48,866 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,866 - [cached since 2.038s ago] ('Abigail', 'Pineda', '1934-02-16', 'Jessicachester')
+2024-09-23 18:24:48,868 - COMMIT
+2024-09-23 18:24:48,874 - BEGIN (implicit)
+2024-09-23 18:24:48,874 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,874 - [cached since 2.046s ago] ('Steven', 'Knight', '1908-06-01', 'Lake Philliphaven')
+2024-09-23 18:24:48,876 - COMMIT
+2024-09-23 18:24:48,882 - BEGIN (implicit)
+2024-09-23 18:24:48,882 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,882 - [cached since 2.055s ago] ('Kenneth', 'Heath', '1977-09-12', 'South Johnathan')
+2024-09-23 18:24:48,884 - COMMIT
+2024-09-23 18:24:48,890 - BEGIN (implicit)
+2024-09-23 18:24:48,890 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,890 - [cached since 2.063s ago] ('Ryan', 'Wallace', '1922-02-12', 'Edwardborough')
+2024-09-23 18:24:48,892 - COMMIT
+2024-09-23 18:24:48,898 - BEGIN (implicit)
+2024-09-23 18:24:48,899 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,899 - [cached since 2.071s ago] ('Debra', 'Sheppard', '1902-01-12', 'South Nicole')
+2024-09-23 18:24:48,901 - COMMIT
+2024-09-23 18:24:48,907 - BEGIN (implicit)
+2024-09-23 18:24:48,907 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,907 - [cached since 2.079s ago] ('Rodney', 'Chavez', '1866-10-25', 'Danatown')
+2024-09-23 18:24:48,909 - COMMIT
+2024-09-23 18:24:48,915 - BEGIN (implicit)
+2024-09-23 18:24:48,915 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,916 - [cached since 2.088s ago] ('David', 'Thomas', '1864-11-11', 'East Johnmouth')
+2024-09-23 18:24:48,917 - COMMIT
+2024-09-23 18:24:48,924 - BEGIN (implicit)
+2024-09-23 18:24:48,924 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,924 - [cached since 2.096s ago] ('Laura', 'Brown', '1916-02-07', 'Larryburgh')
+2024-09-23 18:24:48,926 - COMMIT
+2024-09-23 18:24:48,932 - BEGIN (implicit)
+2024-09-23 18:24:48,932 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,932 - [cached since 2.104s ago] ('Lauren', 'Riley', '1844-10-06', 'Port Sara')
+2024-09-23 18:24:48,934 - COMMIT
+2024-09-23 18:24:48,940 - BEGIN (implicit)
+2024-09-23 18:24:48,940 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,940 - [cached since 2.112s ago] ('Edward', 'Santiago', '1894-03-14', 'South Marie')
+2024-09-23 18:24:48,942 - COMMIT
+2024-09-23 18:24:48,948 - BEGIN (implicit)
+2024-09-23 18:24:48,949 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,949 - [cached since 2.121s ago] ('Anna', 'Cole', '1889-10-22', 'Elijahburgh')
+2024-09-23 18:24:48,951 - COMMIT
+2024-09-23 18:24:48,961 - BEGIN (implicit)
+2024-09-23 18:24:48,962 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,962 - [cached since 2.134s ago] ('Philip', 'Howard', '1924-09-23', 'Stricklandview')
+2024-09-23 18:24:48,964 - COMMIT
+2024-09-23 18:24:48,970 - BEGIN (implicit)
+2024-09-23 18:24:48,970 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,971 - [cached since 2.143s ago] ('Anna', 'Knight', '2004-06-26', 'South Jeremy')
+2024-09-23 18:24:48,973 - COMMIT
+2024-09-23 18:24:48,979 - BEGIN (implicit)
+2024-09-23 18:24:48,979 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,979 - [cached since 2.151s ago] ('Kimberly', 'Cox', '1868-12-18', 'Santosside')
+2024-09-23 18:24:48,981 - COMMIT
+2024-09-23 18:24:48,987 - BEGIN (implicit)
+2024-09-23 18:24:48,987 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,987 - [cached since 2.159s ago] ('Margaret', 'Watson', '1868-10-19', 'Timothyton')
+2024-09-23 18:24:48,989 - COMMIT
+2024-09-23 18:24:48,995 - BEGIN (implicit)
+2024-09-23 18:24:48,995 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:48,996 - [cached since 2.168s ago] ('Randy', 'Massey', '1958-03-28', 'Karenshire')
+2024-09-23 18:24:48,997 - COMMIT
+2024-09-23 18:24:49,003 - BEGIN (implicit)
+2024-09-23 18:24:49,004 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,004 - [cached since 2.176s ago] ('Daniel', 'Reed', '1905-11-10', 'West Amandatown')
+2024-09-23 18:24:49,006 - COMMIT
+2024-09-23 18:24:49,012 - BEGIN (implicit)
+2024-09-23 18:24:49,012 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,012 - [cached since 2.185s ago] ('John', 'Baxter', '1883-10-06', 'New Dalehaven')
+2024-09-23 18:24:49,014 - COMMIT
+2024-09-23 18:24:49,020 - BEGIN (implicit)
+2024-09-23 18:24:49,020 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,020 - [cached since 2.193s ago] ('Ashley', 'Watkins', '1846-12-03', 'Keithmouth')
+2024-09-23 18:24:49,022 - COMMIT
+2024-09-23 18:24:49,029 - BEGIN (implicit)
+2024-09-23 18:24:49,029 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,029 - [cached since 2.202s ago] ('Michelle', 'Mcgee', '1957-12-23', 'East Shawnside')
+2024-09-23 18:24:49,032 - COMMIT
+2024-09-23 18:24:49,038 - BEGIN (implicit)
+2024-09-23 18:24:49,038 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,038 - [cached since 2.211s ago] ('Brian', 'Young', '1917-12-05', 'Lewisstad')
+2024-09-23 18:24:49,040 - COMMIT
+2024-09-23 18:24:49,046 - BEGIN (implicit)
+2024-09-23 18:24:49,046 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,046 - [cached since 2.219s ago] ('Adam', 'Manning', '1895-02-25', 'Williamston')
+2024-09-23 18:24:49,048 - COMMIT
+2024-09-23 18:24:49,054 - BEGIN (implicit)
+2024-09-23 18:24:49,054 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,054 - [cached since 2.227s ago] ('Christopher', 'Wise', '1915-01-24', 'Lake Michaelmouth')
+2024-09-23 18:24:49,056 - COMMIT
+2024-09-23 18:24:49,062 - BEGIN (implicit)
+2024-09-23 18:24:49,063 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,063 - [cached since 2.235s ago] ('Nathaniel', 'Frey', '1936-03-30', 'Stevensbury')
+2024-09-23 18:24:49,064 - COMMIT
+2024-09-23 18:24:49,072 - BEGIN (implicit)
+2024-09-23 18:24:49,073 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,073 - [cached since 2.245s ago] ('Lisa', 'Hicks', '2006-08-20', 'Baileyberg')
+2024-09-23 18:24:49,075 - COMMIT
+2024-09-23 18:24:49,082 - BEGIN (implicit)
+2024-09-23 18:24:49,082 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,082 - [cached since 2.255s ago] ('Nicole', 'Cunningham', '1989-02-22', 'Whiteside')
+2024-09-23 18:24:49,084 - COMMIT
+2024-09-23 18:24:49,090 - BEGIN (implicit)
+2024-09-23 18:24:49,091 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,091 - [cached since 2.264s ago] ('Paul', 'Frey', '1903-10-12', 'West Alan')
+2024-09-23 18:24:49,093 - COMMIT
+2024-09-23 18:24:49,100 - BEGIN (implicit)
+2024-09-23 18:24:49,101 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,101 - [cached since 2.273s ago] ('Michael', 'Garcia', '1993-09-02', 'Parkshire')
+2024-09-23 18:24:49,103 - COMMIT
+2024-09-23 18:24:49,109 - BEGIN (implicit)
+2024-09-23 18:24:49,109 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,109 - [cached since 2.281s ago] ('Austin', 'Ferrell', '1958-10-19', 'East Grace')
+2024-09-23 18:24:49,111 - COMMIT
+2024-09-23 18:24:49,117 - BEGIN (implicit)
+2024-09-23 18:24:49,117 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,117 - [cached since 2.289s ago] ('Judy', 'Johns', '1841-04-19', 'Port Joyce')
+2024-09-23 18:24:49,119 - COMMIT
+2024-09-23 18:24:49,125 - BEGIN (implicit)
+2024-09-23 18:24:49,125 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,125 - [cached since 2.297s ago] ('Mark', 'Nelson', '1983-11-10', 'Williamsburgh')
+2024-09-23 18:24:49,127 - COMMIT
+2024-09-23 18:24:49,134 - BEGIN (implicit)
+2024-09-23 18:24:49,134 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,134 - [cached since 2.306s ago] ('John', 'Lewis', '1943-04-03', 'Port Laurenville')
+2024-09-23 18:24:49,136 - COMMIT
+2024-09-23 18:24:49,142 - BEGIN (implicit)
+2024-09-23 18:24:49,142 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,142 - [cached since 2.314s ago] ('Paul', 'Lang', '1864-03-17', 'Michellebury')
+2024-09-23 18:24:49,144 - COMMIT
+2024-09-23 18:24:49,150 - BEGIN (implicit)
+2024-09-23 18:24:49,151 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,151 - [cached since 2.323s ago] ('Ellen', 'Smith', '2004-03-30', 'Greenfort')
+2024-09-23 18:24:49,152 - COMMIT
+2024-09-23 18:24:49,158 - BEGIN (implicit)
+2024-09-23 18:24:49,158 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,159 - [cached since 2.331s ago] ('Chris', 'Brown', '1985-06-16', 'Kellyton')
+2024-09-23 18:24:49,160 - COMMIT
+2024-09-23 18:24:49,166 - BEGIN (implicit)
+2024-09-23 18:24:49,166 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,166 - [cached since 2.338s ago] ('Steven', 'Austin', '1982-11-28', 'Rogerside')
+2024-09-23 18:24:49,168 - COMMIT
+2024-09-23 18:24:49,174 - BEGIN (implicit)
+2024-09-23 18:24:49,174 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,174 - [cached since 2.346s ago] ('Christine', 'Neal', '1985-02-09', 'Catherineview')
+2024-09-23 18:24:49,176 - COMMIT
+2024-09-23 18:24:49,182 - BEGIN (implicit)
+2024-09-23 18:24:49,182 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,183 - [cached since 2.355s ago] ('Jennifer', 'Johnson', '1842-02-01', 'Stevenstad')
+2024-09-23 18:24:49,185 - COMMIT
+2024-09-23 18:24:49,192 - BEGIN (implicit)
+2024-09-23 18:24:49,192 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,192 - [cached since 2.364s ago] ('Dawn', 'Smith', '1941-02-05', 'Lopezton')
+2024-09-23 18:24:49,195 - COMMIT
+2024-09-23 18:24:49,202 - BEGIN (implicit)
+2024-09-23 18:24:49,202 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,202 - [cached since 2.374s ago] ('Nancy', 'Ferrell', '1953-06-13', 'Michaelview')
+2024-09-23 18:24:49,203 - COMMIT
+2024-09-23 18:24:49,210 - BEGIN (implicit)
+2024-09-23 18:24:49,210 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,210 - [cached since 2.383s ago] ('Pamela', 'Stewart', '1950-12-18', 'Lake Garyton')
+2024-09-23 18:24:49,212 - COMMIT
+2024-09-23 18:24:49,219 - BEGIN (implicit)
+2024-09-23 18:24:49,219 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,219 - [cached since 2.391s ago] ('Erin', 'Brown', '1854-09-20', 'North Danielfort')
+2024-09-23 18:24:49,221 - COMMIT
+2024-09-23 18:24:49,227 - BEGIN (implicit)
+2024-09-23 18:24:49,228 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,228 - [cached since 2.401s ago] ('Kenneth', 'Cook', '1897-11-21', 'Jessicaton')
+2024-09-23 18:24:49,230 - COMMIT
+2024-09-23 18:24:49,236 - BEGIN (implicit)
+2024-09-23 18:24:49,236 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,236 - [cached since 2.409s ago] ('Deborah', 'Nguyen', '1945-01-31', 'East Joelmouth')
+2024-09-23 18:24:49,239 - COMMIT
+2024-09-23 18:24:49,244 - BEGIN (implicit)
+2024-09-23 18:24:49,245 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,245 - [cached since 2.417s ago] ('Stephanie', 'Berry', '1880-05-28', 'Houstonhaven')
+2024-09-23 18:24:49,247 - COMMIT
+2024-09-23 18:24:49,253 - BEGIN (implicit)
+2024-09-23 18:24:49,253 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,253 - [cached since 2.426s ago] ('Lucas', 'Anderson', '1868-03-10', 'Patrickland')
+2024-09-23 18:24:49,256 - COMMIT
+2024-09-23 18:24:49,262 - BEGIN (implicit)
+2024-09-23 18:24:49,263 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,263 - [cached since 2.435s ago] ('Stacy', 'Francis', '1944-01-10', 'West Matthew')
+2024-09-23 18:24:49,265 - COMMIT
+2024-09-23 18:24:49,271 - BEGIN (implicit)
+2024-09-23 18:24:49,271 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,271 - [cached since 2.444s ago] ('Nathan', 'Perry', '1852-09-02', 'Ponceland')
+2024-09-23 18:24:49,274 - COMMIT
+2024-09-23 18:24:49,282 - BEGIN (implicit)
+2024-09-23 18:24:49,282 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,282 - [cached since 2.454s ago] ('Gina', 'Ferguson', '1895-05-13', 'Farrellhaven')
+2024-09-23 18:24:49,285 - COMMIT
+2024-09-23 18:24:49,291 - BEGIN (implicit)
+2024-09-23 18:24:49,291 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,291 - [cached since 2.463s ago] ('Julie', 'Guzman', '1966-12-19', 'Christensenstad')
+2024-09-23 18:24:49,293 - COMMIT
+2024-09-23 18:24:49,299 - BEGIN (implicit)
+2024-09-23 18:24:49,299 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,299 - [cached since 2.471s ago] ('Jonathan', 'Phillips', '1931-07-23', 'Mitchellhaven')
+2024-09-23 18:24:49,301 - COMMIT
+2024-09-23 18:24:49,307 - BEGIN (implicit)
+2024-09-23 18:24:49,308 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,308 - [cached since 2.48s ago] ('Alexis', 'Gutierrez', '1982-01-03', 'Abbottville')
+2024-09-23 18:24:49,310 - COMMIT
+2024-09-23 18:24:49,316 - BEGIN (implicit)
+2024-09-23 18:24:49,317 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,317 - [cached since 2.489s ago] ('Derek', 'Lawrence', '1989-12-23', 'West Amandaburgh')
+2024-09-23 18:24:49,319 - COMMIT
+2024-09-23 18:24:49,325 - BEGIN (implicit)
+2024-09-23 18:24:49,325 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,325 - [cached since 2.497s ago] ('Michael', 'Sexton', '1892-07-13', 'West Christopher')
+2024-09-23 18:24:49,327 - COMMIT
+2024-09-23 18:24:49,333 - BEGIN (implicit)
+2024-09-23 18:24:49,333 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,333 - [cached since 2.505s ago] ('Christopher', 'Little', '1857-01-16', 'Port Matthewview')
+2024-09-23 18:24:49,335 - COMMIT
+2024-09-23 18:24:49,342 - BEGIN (implicit)
+2024-09-23 18:24:49,342 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,342 - [cached since 2.515s ago] ('Aaron', 'Stevens', '2011-12-24', 'Mcdowellborough')
+2024-09-23 18:24:49,344 - COMMIT
+2024-09-23 18:24:49,351 - BEGIN (implicit)
+2024-09-23 18:24:49,351 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,351 - [cached since 2.523s ago] ('Samantha', 'Cantrell', '1889-09-21', 'North Cheryl')
+2024-09-23 18:24:49,353 - COMMIT
+2024-09-23 18:24:49,359 - BEGIN (implicit)
+2024-09-23 18:24:49,359 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,359 - [cached since 2.531s ago] ('Michael', 'Hudson', '1985-12-28', 'New Laurachester')
+2024-09-23 18:24:49,361 - COMMIT
+2024-09-23 18:24:49,367 - BEGIN (implicit)
+2024-09-23 18:24:49,368 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,368 - [cached since 2.54s ago] ('Jenna', 'Watson', '1922-12-02', 'Ebonybury')
+2024-09-23 18:24:49,370 - COMMIT
+2024-09-23 18:24:49,377 - BEGIN (implicit)
+2024-09-23 18:24:49,377 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,377 - [cached since 2.549s ago] ('Eric', 'Cruz', '1974-02-28', 'Silvaport')
+2024-09-23 18:24:49,379 - COMMIT
+2024-09-23 18:24:49,385 - BEGIN (implicit)
+2024-09-23 18:24:49,385 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,385 - [cached since 2.557s ago] ('Teresa', 'Mann', '1907-11-19', 'East Harryville')
+2024-09-23 18:24:49,387 - COMMIT
+2024-09-23 18:24:49,393 - BEGIN (implicit)
+2024-09-23 18:24:49,393 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,393 - [cached since 2.566s ago] ('Joyce', 'Burnett', '1875-08-28', 'Poncefort')
+2024-09-23 18:24:49,396 - COMMIT
+2024-09-23 18:24:49,403 - BEGIN (implicit)
+2024-09-23 18:24:49,403 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,403 - [cached since 2.575s ago] ('Richard', 'Vincent', '1979-07-02', 'Hamiltonport')
+2024-09-23 18:24:49,406 - COMMIT
+2024-09-23 18:24:49,415 - BEGIN (implicit)
+2024-09-23 18:24:49,415 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,415 - [cached since 2.587s ago] ('Cody', 'Boyd', '1947-11-30', 'Mcgeeland')
+2024-09-23 18:24:49,417 - COMMIT
+2024-09-23 18:24:49,424 - BEGIN (implicit)
+2024-09-23 18:24:49,425 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,425 - [cached since 2.597s ago] ('David', 'Patterson', '1882-02-13', 'Lisahaven')
+2024-09-23 18:24:49,427 - COMMIT
+2024-09-23 18:24:49,433 - BEGIN (implicit)
+2024-09-23 18:24:49,433 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,434 - [cached since 2.606s ago] ('Ian', 'Osborn', '1837-11-22', 'Port Juliashire')
+2024-09-23 18:24:49,435 - COMMIT
+2024-09-23 18:24:49,441 - BEGIN (implicit)
+2024-09-23 18:24:49,441 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,441 - [cached since 2.614s ago] ('Kimberly', 'Zavala', '1967-07-26', 'Port Johnstad')
+2024-09-23 18:24:49,443 - COMMIT
+2024-09-23 18:24:49,450 - BEGIN (implicit)
+2024-09-23 18:24:49,450 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,450 - [cached since 2.623s ago] ('Jonathan', 'Bass', '1881-07-24', 'Sydneyfurt')
+2024-09-23 18:24:49,452 - COMMIT
+2024-09-23 18:24:49,459 - BEGIN (implicit)
+2024-09-23 18:24:49,459 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,459 - [cached since 2.631s ago] ('Kelsey', 'Cox', '1868-08-07', 'Williamside')
+2024-09-23 18:24:49,461 - COMMIT
+2024-09-23 18:24:49,469 - BEGIN (implicit)
+2024-09-23 18:24:49,469 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,469 - [cached since 2.641s ago] ('Karen', 'Fitzgerald', '1941-10-18', 'Larsonshire')
+2024-09-23 18:24:49,471 - COMMIT
+2024-09-23 18:24:49,477 - BEGIN (implicit)
+2024-09-23 18:24:49,478 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,478 - [cached since 2.65s ago] ('Lisa', 'Gilbert', '1956-01-07', 'Petersenmouth')
+2024-09-23 18:24:49,480 - COMMIT
+2024-09-23 18:24:49,486 - BEGIN (implicit)
+2024-09-23 18:24:49,486 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,486 - [cached since 2.658s ago] ('Kathleen', 'Walters', '2012-08-29', 'East Laura')
+2024-09-23 18:24:49,488 - COMMIT
+2024-09-23 18:24:49,494 - BEGIN (implicit)
+2024-09-23 18:24:49,494 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,494 - [cached since 2.666s ago] ('Stephanie', 'Jones', '1987-03-05', 'Lake Anthonyborough')
+2024-09-23 18:24:49,495 - COMMIT
+2024-09-23 18:24:49,502 - BEGIN (implicit)
+2024-09-23 18:24:49,503 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,503 - [cached since 2.674s ago] ('Gregory', 'Lewis', '1939-11-24', 'Steventon')
+2024-09-23 18:24:49,504 - COMMIT
+2024-09-23 18:24:49,510 - BEGIN (implicit)
+2024-09-23 18:24:49,511 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,511 - [cached since 2.683s ago] ('Samantha', 'Moore', '2000-11-10', 'New Kayla')
+2024-09-23 18:24:49,513 - COMMIT
+2024-09-23 18:24:49,519 - BEGIN (implicit)
+2024-09-23 18:24:49,519 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,519 - [cached since 2.691s ago] ('Nathaniel', 'Hayes', '1968-03-10', 'New Amanda')
+2024-09-23 18:24:49,521 - COMMIT
+2024-09-23 18:24:49,527 - BEGIN (implicit)
+2024-09-23 18:24:49,527 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,528 - [cached since 2.699s ago] ('John', 'Solis', '1966-03-29', 'New Billyland')
+2024-09-23 18:24:49,530 - COMMIT
+2024-09-23 18:24:49,536 - BEGIN (implicit)
+2024-09-23 18:24:49,536 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,536 - [cached since 2.708s ago] ('Stephanie', 'Jacobs', '1874-11-26', 'Jacobmouth')
+2024-09-23 18:24:49,538 - COMMIT
+2024-09-23 18:24:49,544 - BEGIN (implicit)
+2024-09-23 18:24:49,544 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,545 - [cached since 2.716s ago] ('Samuel', 'Wyatt', '1832-09-02', 'North Davidview')
+2024-09-23 18:24:49,546 - COMMIT
+2024-09-23 18:24:49,552 - BEGIN (implicit)
+2024-09-23 18:24:49,553 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,553 - [cached since 2.725s ago] ('Jonathan', 'Jackson', '1925-11-12', 'West Jeffborough')
+2024-09-23 18:24:49,555 - COMMIT
+2024-09-23 18:24:49,561 - BEGIN (implicit)
+2024-09-23 18:24:49,561 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,561 - [cached since 2.733s ago] ('Amanda', 'Fields', '1943-11-19', 'East Samuelhaven')
+2024-09-23 18:24:49,563 - COMMIT
+2024-09-23 18:24:49,569 - BEGIN (implicit)
+2024-09-23 18:24:49,569 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,569 - [cached since 2.741s ago] ('Randy', 'Forbes', '1980-01-01', 'Alyssafurt')
+2024-09-23 18:24:49,572 - COMMIT
+2024-09-23 18:24:49,578 - BEGIN (implicit)
+2024-09-23 18:24:49,578 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,579 - [cached since 2.75s ago] ('Nicole', 'Martin', '1976-08-14', 'Lisabury')
+2024-09-23 18:24:49,581 - COMMIT
+2024-09-23 18:24:49,587 - BEGIN (implicit)
+2024-09-23 18:24:49,587 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,588 - [cached since 2.759s ago] ('Thomas', 'Brock', '1981-03-16', 'Mezaborough')
+2024-09-23 18:24:49,590 - COMMIT
+2024-09-23 18:24:49,595 - BEGIN (implicit)
+2024-09-23 18:24:49,596 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,596 - [cached since 2.768s ago] ('William', 'Bailey', '1966-09-22', 'Martinfort')
+2024-09-23 18:24:49,598 - COMMIT
+2024-09-23 18:24:49,604 - BEGIN (implicit)
+2024-09-23 18:24:49,605 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,605 - [cached since 2.777s ago] ('Taylor', 'Roach', '1945-08-17', 'North Jeffreymouth')
+2024-09-23 18:24:49,606 - COMMIT
+2024-09-23 18:24:49,612 - BEGIN (implicit)
+2024-09-23 18:24:49,612 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,612 - [cached since 2.785s ago] ('Brittany', 'Powell', '1951-01-09', 'East Alexa')
+2024-09-23 18:24:49,614 - COMMIT
+2024-09-23 18:24:49,620 - BEGIN (implicit)
+2024-09-23 18:24:49,620 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,621 - [cached since 2.793s ago] ('Brian', 'Burns', '1984-10-24', 'Laurenside')
+2024-09-23 18:24:49,622 - COMMIT
+2024-09-23 18:24:49,628 - BEGIN (implicit)
+2024-09-23 18:24:49,629 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,629 - [cached since 2.801s ago] ('Catherine', 'Stokes', '1984-09-18', 'Lake Anthonyville')
+2024-09-23 18:24:49,631 - COMMIT
+2024-09-23 18:24:49,637 - BEGIN (implicit)
+2024-09-23 18:24:49,638 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,638 - [cached since 2.81s ago] ('Lauren', 'Golden', '1856-12-26', 'Carrollland')
+2024-09-23 18:24:49,640 - COMMIT
+2024-09-23 18:24:49,646 - BEGIN (implicit)
+2024-09-23 18:24:49,647 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,647 - [cached since 2.819s ago] ('Joe', 'Moon', '1872-04-01', 'West Marktown')
+2024-09-23 18:24:49,649 - COMMIT
+2024-09-23 18:24:49,655 - BEGIN (implicit)
+2024-09-23 18:24:49,656 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,656 - [cached since 2.828s ago] ('Joshua', 'Buck', '1952-09-14', 'West Johnathan')
+2024-09-23 18:24:49,658 - COMMIT
+2024-09-23 18:24:49,663 - BEGIN (implicit)
+2024-09-23 18:24:49,664 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,664 - [cached since 2.836s ago] ('Mackenzie', 'Marshall', '1890-02-22', 'Arielshire')
+2024-09-23 18:24:49,665 - COMMIT
+2024-09-23 18:24:49,672 - BEGIN (implicit)
+2024-09-23 18:24:49,673 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,673 - [cached since 2.845s ago] ('Christopher', 'Anderson', '2005-05-20', 'South Deniseville')
+2024-09-23 18:24:49,675 - COMMIT
+2024-09-23 18:24:49,682 - BEGIN (implicit)
+2024-09-23 18:24:49,683 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,683 - [cached since 2.855s ago] ('Brandon', 'Dean', '1855-09-19', 'Omarbury')
+2024-09-23 18:24:49,685 - COMMIT
+2024-09-23 18:24:49,692 - BEGIN (implicit)
+2024-09-23 18:24:49,692 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,693 - [cached since 2.865s ago] ('Richard', 'Cortez', '1974-10-12', 'East Jessica')
+2024-09-23 18:24:49,695 - COMMIT
+2024-09-23 18:24:49,702 - BEGIN (implicit)
+2024-09-23 18:24:49,703 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,703 - [cached since 2.875s ago] ('Kelsey', 'Campbell', '1955-07-18', 'Bakerberg')
+2024-09-23 18:24:49,705 - COMMIT
+2024-09-23 18:24:49,711 - BEGIN (implicit)
+2024-09-23 18:24:49,711 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,712 - [cached since 2.883s ago] ('Angel', 'Martinez', '1838-07-03', 'West Richardburgh')
+2024-09-23 18:24:49,714 - COMMIT
+2024-09-23 18:24:49,720 - BEGIN (implicit)
+2024-09-23 18:24:49,720 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,720 - [cached since 2.892s ago] ('Amy', 'Hughes', '1850-03-24', 'Millerfurt')
+2024-09-23 18:24:49,722 - COMMIT
+2024-09-23 18:24:49,728 - BEGIN (implicit)
+2024-09-23 18:24:49,728 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,729 - [cached since 2.9s ago] ('Deborah', 'Tucker', '1963-02-03', 'Taylortown')
+2024-09-23 18:24:49,730 - COMMIT
+2024-09-23 18:24:49,736 - BEGIN (implicit)
+2024-09-23 18:24:49,737 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,737 - [cached since 2.909s ago] ('Justin', 'Warner', '1910-12-16', 'Alvarezland')
+2024-09-23 18:24:49,739 - COMMIT
+2024-09-23 18:24:49,745 - BEGIN (implicit)
+2024-09-23 18:24:49,745 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,745 - [cached since 2.917s ago] ('Patricia', 'Clark', '2008-05-15', 'Abigailton')
+2024-09-23 18:24:49,747 - COMMIT
+2024-09-23 18:24:49,753 - BEGIN (implicit)
+2024-09-23 18:24:49,754 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,754 - [cached since 2.926s ago] ('John', 'Hutchinson', '1920-06-16', 'Karenport')
+2024-09-23 18:24:49,763 - COMMIT
+2024-09-23 18:24:49,771 - BEGIN (implicit)
+2024-09-23 18:24:49,771 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,771 - [cached since 2.943s ago] ('James', 'Pearson', '1884-01-21', 'East Rebecca')
+2024-09-23 18:24:49,774 - COMMIT
+2024-09-23 18:24:49,780 - BEGIN (implicit)
+2024-09-23 18:24:49,780 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,780 - [cached since 2.952s ago] ('Kevin', 'Robles', '1903-02-16', 'Christinefurt')
+2024-09-23 18:24:49,782 - COMMIT
+2024-09-23 18:24:49,789 - BEGIN (implicit)
+2024-09-23 18:24:49,790 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,790 - [cached since 2.962s ago] ('Meagan', 'Swanson', '1947-10-06', 'Coxfort')
+2024-09-23 18:24:49,792 - COMMIT
+2024-09-23 18:24:49,798 - BEGIN (implicit)
+2024-09-23 18:24:49,798 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,798 - [cached since 2.971s ago] ('Michael', 'Phillips', '1851-05-07', 'Cynthiaton')
+2024-09-23 18:24:49,801 - COMMIT
+2024-09-23 18:24:49,807 - BEGIN (implicit)
+2024-09-23 18:24:49,808 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,808 - [cached since 2.98s ago] ('Rebekah', 'Rodriguez', '1941-03-24', 'West Leslie')
+2024-09-23 18:24:49,810 - COMMIT
+2024-09-23 18:24:49,817 - BEGIN (implicit)
+2024-09-23 18:24:49,817 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,818 - [cached since 2.99s ago] ('Nicholas', 'Bush', '1935-12-29', 'West Susan')
+2024-09-23 18:24:49,819 - COMMIT
+2024-09-23 18:24:49,826 - BEGIN (implicit)
+2024-09-23 18:24:49,826 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,826 - [cached since 2.999s ago] ('Todd', 'Stein', '1831-03-13', 'Nelsonville')
+2024-09-23 18:24:49,828 - COMMIT
+2024-09-23 18:24:49,835 - BEGIN (implicit)
+2024-09-23 18:24:49,836 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,836 - [cached since 3.008s ago] ('Joshua', 'White', '1893-02-24', 'South Tyrone')
+2024-09-23 18:24:49,838 - COMMIT
+2024-09-23 18:24:49,844 - BEGIN (implicit)
+2024-09-23 18:24:49,844 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,845 - [cached since 3.017s ago] ('Tina', 'Yu', '1968-06-13', 'Vegafurt')
+2024-09-23 18:24:49,846 - COMMIT
+2024-09-23 18:24:49,853 - BEGIN (implicit)
+2024-09-23 18:24:49,854 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,854 - [cached since 3.026s ago] ('James', 'Green', '1860-07-16', 'Webbmouth')
+2024-09-23 18:24:49,856 - COMMIT
+2024-09-23 18:24:49,863 - BEGIN (implicit)
+2024-09-23 18:24:49,863 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,864 - [cached since 3.036s ago] ('Lori', 'Cobb', '1988-08-12', 'Smithfurt')
+2024-09-23 18:24:49,865 - COMMIT
+2024-09-23 18:24:49,872 - BEGIN (implicit)
+2024-09-23 18:24:49,873 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,873 - [cached since 3.045s ago] ('Robert', 'Vincent', '2001-09-20', 'Hardingfurt')
+2024-09-23 18:24:49,875 - COMMIT
+2024-09-23 18:24:49,882 - BEGIN (implicit)
+2024-09-23 18:24:49,882 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,882 - [cached since 3.055s ago] ('Angela', 'Owens', '1846-09-09', 'Vaughnside')
+2024-09-23 18:24:49,884 - COMMIT
+2024-09-23 18:24:49,890 - BEGIN (implicit)
+2024-09-23 18:24:49,891 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,891 - [cached since 3.063s ago] ('Dawn', 'Wood', '1883-08-31', 'Shanemouth')
+2024-09-23 18:24:49,893 - COMMIT
+2024-09-23 18:24:49,901 - BEGIN (implicit)
+2024-09-23 18:24:49,901 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,901 - [cached since 3.073s ago] ('Jerry', 'Love', '2013-09-23', 'Lake Kristi')
+2024-09-23 18:24:49,903 - COMMIT
+2024-09-23 18:24:49,910 - BEGIN (implicit)
+2024-09-23 18:24:49,911 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,911 - [cached since 3.082s ago] ('Diana', 'Sanchez', '1861-02-09', 'Alexanderton')
+2024-09-23 18:24:49,914 - COMMIT
+2024-09-23 18:24:49,920 - BEGIN (implicit)
+2024-09-23 18:24:49,920 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,921 - [cached since 3.092s ago] ('Christine', 'Cox', '1992-08-25', 'Barkermouth')
+2024-09-23 18:24:49,923 - COMMIT
+2024-09-23 18:24:49,929 - BEGIN (implicit)
+2024-09-23 18:24:49,929 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,929 - [cached since 3.101s ago] ('Rebecca', 'James', '1877-05-27', 'East Sarahville')
+2024-09-23 18:24:49,931 - COMMIT
+2024-09-23 18:24:49,937 - BEGIN (implicit)
+2024-09-23 18:24:49,937 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,937 - [cached since 3.109s ago] ('Jacqueline', 'Mccoy', '2007-02-25', 'Martinezton')
+2024-09-23 18:24:49,939 - COMMIT
+2024-09-23 18:24:49,945 - BEGIN (implicit)
+2024-09-23 18:24:49,946 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,946 - [cached since 3.117s ago] ('Robert', 'Morris', '1920-08-22', 'Jamesberg')
+2024-09-23 18:24:49,948 - COMMIT
+2024-09-23 18:24:49,954 - BEGIN (implicit)
+2024-09-23 18:24:49,954 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,955 - [cached since 3.126s ago] ('Jennifer', 'Nichols', '1892-05-11', 'Martinezburgh')
+2024-09-23 18:24:49,957 - COMMIT
+2024-09-23 18:24:49,963 - BEGIN (implicit)
+2024-09-23 18:24:49,963 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,963 - [cached since 3.135s ago] ('James', 'Shields', '1992-11-13', 'South Lindsay')
+2024-09-23 18:24:49,965 - COMMIT
+2024-09-23 18:24:49,971 - BEGIN (implicit)
+2024-09-23 18:24:49,972 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,972 - [cached since 3.144s ago] ('Ricky', 'White', '1866-11-29', 'Jennifermouth')
+2024-09-23 18:24:49,974 - COMMIT
+2024-09-23 18:24:49,980 - BEGIN (implicit)
+2024-09-23 18:24:49,980 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,980 - [cached since 3.152s ago] ('Bradley', 'Gordon', '1885-03-29', 'West Eric')
+2024-09-23 18:24:49,982 - COMMIT
+2024-09-23 18:24:49,989 - BEGIN (implicit)
+2024-09-23 18:24:49,989 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,989 - [cached since 3.161s ago] ('Pamela', 'Morrison', '1953-03-27', 'Porterborough')
+2024-09-23 18:24:49,991 - COMMIT
+2024-09-23 18:24:49,996 - BEGIN (implicit)
+2024-09-23 18:24:49,997 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:49,997 - [cached since 3.169s ago] ('Aaron', 'Wagner', '1835-02-03', 'South Donaldville')
+2024-09-23 18:24:49,999 - COMMIT
+2024-09-23 18:24:50,005 - BEGIN (implicit)
+2024-09-23 18:24:50,005 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,005 - [cached since 3.178s ago] ('Sabrina', 'Mercer', '2007-06-14', 'North Wyattville')
+2024-09-23 18:24:50,008 - COMMIT
+2024-09-23 18:24:50,014 - BEGIN (implicit)
+2024-09-23 18:24:50,014 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,014 - [cached since 3.187s ago] ('Lisa', 'Green', '1956-03-21', 'Kellerland')
+2024-09-23 18:24:50,017 - COMMIT
+2024-09-23 18:24:50,023 - BEGIN (implicit)
+2024-09-23 18:24:50,023 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,023 - [cached since 3.196s ago] ('Justin', 'Castillo', '1961-08-04', 'Henryberg')
+2024-09-23 18:24:50,025 - COMMIT
+2024-09-23 18:24:50,031 - BEGIN (implicit)
+2024-09-23 18:24:50,032 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,032 - [cached since 3.204s ago] ('Dale', 'Oconnor', '2003-06-11', 'North Darrellland')
+2024-09-23 18:24:50,034 - COMMIT
+2024-09-23 18:24:50,041 - BEGIN (implicit)
+2024-09-23 18:24:50,041 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,042 - [cached since 3.214s ago] ('Shawn', 'Nelson', '1940-05-27', 'North Austinview')
+2024-09-23 18:24:50,044 - COMMIT
+2024-09-23 18:24:50,050 - BEGIN (implicit)
+2024-09-23 18:24:50,051 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,051 - [cached since 3.223s ago] ('Ashley', 'Montoya', '2002-08-06', 'Stephaniemouth')
+2024-09-23 18:24:50,053 - COMMIT
+2024-09-23 18:24:50,060 - BEGIN (implicit)
+2024-09-23 18:24:50,060 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,060 - [cached since 3.233s ago] ('Jacob', 'Reyes', '1932-01-23', 'Ginaside')
+2024-09-23 18:24:50,062 - COMMIT
+2024-09-23 18:24:50,068 - BEGIN (implicit)
+2024-09-23 18:24:50,069 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,069 - [cached since 3.241s ago] ('Craig', 'Wright', '1857-04-01', 'Pittmanport')
+2024-09-23 18:24:50,071 - COMMIT
+2024-09-23 18:24:50,078 - BEGIN (implicit)
+2024-09-23 18:24:50,079 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,079 - [cached since 3.251s ago] ('Gregory', 'Schroeder', '1911-02-18', 'Curryfurt')
+2024-09-23 18:24:50,081 - COMMIT
+2024-09-23 18:24:50,087 - BEGIN (implicit)
+2024-09-23 18:24:50,088 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,088 - [cached since 3.26s ago] ('Paula', 'Hart', '1852-10-15', 'Dorothyberg')
+2024-09-23 18:24:50,090 - COMMIT
+2024-09-23 18:24:50,098 - BEGIN (implicit)
+2024-09-23 18:24:50,099 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,099 - [cached since 3.271s ago] ('Thomas', 'Hull', '1933-01-29', 'Jasonview')
+2024-09-23 18:24:50,101 - COMMIT
+2024-09-23 18:24:50,108 - BEGIN (implicit)
+2024-09-23 18:24:50,109 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,109 - [cached since 3.281s ago] ('Ann', 'Malone', '1902-12-03', 'Johnsonberg')
+2024-09-23 18:24:50,111 - COMMIT
+2024-09-23 18:24:50,118 - BEGIN (implicit)
+2024-09-23 18:24:50,118 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,118 - [cached since 3.29s ago] ('Juan', 'Holden', '2004-08-16', 'Lake Anthonyhaven')
+2024-09-23 18:24:50,121 - COMMIT
+2024-09-23 18:24:50,135 - BEGIN (implicit)
+2024-09-23 18:24:50,136 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,136 - [cached since 3.308s ago] ('Joy', 'Craig', '1860-05-18', 'Craigfort')
+2024-09-23 18:24:50,138 - COMMIT
+2024-09-23 18:24:50,146 - BEGIN (implicit)
+2024-09-23 18:24:50,146 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,146 - [cached since 3.318s ago] ('Erika', 'Taylor', '1828-11-25', 'Mollyton')
+2024-09-23 18:24:50,148 - COMMIT
+2024-09-23 18:24:50,155 - BEGIN (implicit)
+2024-09-23 18:24:50,155 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,156 - [cached since 3.327s ago] ('Antonio', 'Marshall', '1967-05-07', 'Richmondstad')
+2024-09-23 18:24:50,158 - COMMIT
+2024-09-23 18:24:50,165 - BEGIN (implicit)
+2024-09-23 18:24:50,166 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,166 - [cached since 3.338s ago] ('Thomas', 'Rodriguez', '1871-08-01', 'Hayesfurt')
+2024-09-23 18:24:50,168 - COMMIT
+2024-09-23 18:24:50,175 - BEGIN (implicit)
+2024-09-23 18:24:50,175 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,176 - [cached since 3.347s ago] ('Manuel', 'Reed', '1957-03-18', 'Debraport')
+2024-09-23 18:24:50,178 - COMMIT
+2024-09-23 18:24:50,185 - BEGIN (implicit)
+2024-09-23 18:24:50,185 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,185 - [cached since 3.357s ago] ('Brandy', 'Smith', '1845-08-17', 'North Kathryn')
+2024-09-23 18:24:50,187 - COMMIT
+2024-09-23 18:24:50,194 - BEGIN (implicit)
+2024-09-23 18:24:50,194 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,194 - [cached since 3.366s ago] ('Brandon', 'Calderon', '1894-06-10', 'South Patrick')
+2024-09-23 18:24:50,196 - COMMIT
+2024-09-23 18:24:50,202 - BEGIN (implicit)
+2024-09-23 18:24:50,202 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,202 - [cached since 3.375s ago] ('James', 'Rodriguez', '2006-10-30', 'Jessicaport')
+2024-09-23 18:24:50,204 - COMMIT
+2024-09-23 18:24:50,211 - BEGIN (implicit)
+2024-09-23 18:24:50,212 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,212 - [cached since 3.384s ago] ('Shelley', 'Ayala', '1908-07-16', 'Clarkeshire')
+2024-09-23 18:24:50,214 - COMMIT
+2024-09-23 18:24:50,220 - BEGIN (implicit)
+2024-09-23 18:24:50,220 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,220 - [cached since 3.393s ago] ('Tina', 'Rocha', '1992-11-30', 'South Annashire')
+2024-09-23 18:24:50,223 - COMMIT
+2024-09-23 18:24:50,230 - BEGIN (implicit)
+2024-09-23 18:24:50,230 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,230 - [cached since 3.403s ago] ('Tina', 'Rodriguez', '1844-06-25', 'Colonview')
+2024-09-23 18:24:50,232 - COMMIT
+2024-09-23 18:24:50,238 - BEGIN (implicit)
+2024-09-23 18:24:50,238 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,239 - [cached since 3.411s ago] ('John', 'Kennedy', '1880-02-08', 'South Tina')
+2024-09-23 18:24:50,241 - COMMIT
+2024-09-23 18:24:50,247 - BEGIN (implicit)
+2024-09-23 18:24:50,247 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,247 - [cached since 3.42s ago] ('Shane', 'Soto', '1962-08-21', 'Port Jonathan')
+2024-09-23 18:24:50,249 - COMMIT
+2024-09-23 18:24:50,255 - BEGIN (implicit)
+2024-09-23 18:24:50,256 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,256 - [cached since 3.429s ago] ('Grant', 'Morgan', '1880-08-16', 'South Guy')
+2024-09-23 18:24:50,258 - COMMIT
+2024-09-23 18:24:50,269 - BEGIN (implicit)
+2024-09-23 18:24:50,270 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,270 - [cached since 3.442s ago] ('Anthony', 'Brown', '1848-08-17', 'North Rebeccafort')
+2024-09-23 18:24:50,272 - COMMIT
+2024-09-23 18:24:50,278 - BEGIN (implicit)
+2024-09-23 18:24:50,279 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,279 - [cached since 3.452s ago] ('Nicholas', 'Fleming', '1824-04-22', 'West Janice')
+2024-09-23 18:24:50,281 - COMMIT
+2024-09-23 18:24:50,288 - BEGIN (implicit)
+2024-09-23 18:24:50,288 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,289 - [cached since 3.461s ago] ('Tracey', 'Moore', '1833-12-30', 'Hannahstad')
+2024-09-23 18:24:50,291 - COMMIT
+2024-09-23 18:24:50,298 - BEGIN (implicit)
+2024-09-23 18:24:50,298 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,298 - [cached since 3.47s ago] ('Krystal', 'Marshall', '1829-12-09', 'East Reginaldfurt')
+2024-09-23 18:24:50,301 - COMMIT
+2024-09-23 18:24:50,307 - BEGIN (implicit)
+2024-09-23 18:24:50,307 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,307 - [cached since 3.479s ago] ('Kimberly', 'Gonzalez', '2003-12-23', 'Elizabethstad')
+2024-09-23 18:24:50,310 - COMMIT
+2024-09-23 18:24:50,316 - BEGIN (implicit)
+2024-09-23 18:24:50,316 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,316 - [cached since 3.488s ago] ('Lisa', 'Walker', '1892-10-15', 'Rodriguezview')
+2024-09-23 18:24:50,320 - COMMIT
+2024-09-23 18:24:50,326 - BEGIN (implicit)
+2024-09-23 18:24:50,326 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,326 - [cached since 3.498s ago] ('David', 'Thompson', '1842-11-28', 'Lake Christopherstad')
+2024-09-23 18:24:50,329 - COMMIT
+2024-09-23 18:24:50,336 - BEGIN (implicit)
+2024-09-23 18:24:50,336 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,337 - [cached since 3.509s ago] ('Haley', 'Mejia', '1973-10-04', 'Manningtown')
+2024-09-23 18:24:50,339 - COMMIT
+2024-09-23 18:24:50,344 - BEGIN (implicit)
+2024-09-23 18:24:50,345 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,345 - [cached since 3.517s ago] ('Tammy', 'Smith', '1869-02-16', 'Sierraview')
+2024-09-23 18:24:50,347 - COMMIT
+2024-09-23 18:24:50,353 - BEGIN (implicit)
+2024-09-23 18:24:50,353 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,353 - [cached since 3.525s ago] ('Melanie', 'Martinez', '1926-07-28', 'East Marissaberg')
+2024-09-23 18:24:50,355 - COMMIT
+2024-09-23 18:24:50,361 - BEGIN (implicit)
+2024-09-23 18:24:50,362 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,362 - [cached since 3.534s ago] ('Barbara', 'Cisneros', '1895-10-09', 'South Nataliefort')
+2024-09-23 18:24:50,363 - COMMIT
+2024-09-23 18:24:50,370 - BEGIN (implicit)
+2024-09-23 18:24:50,370 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,370 - [cached since 3.542s ago] ('Jaime', 'Taylor', '1944-12-13', 'South Tara')
+2024-09-23 18:24:50,372 - COMMIT
+2024-09-23 18:24:50,378 - BEGIN (implicit)
+2024-09-23 18:24:50,378 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,378 - [cached since 3.55s ago] ('Travis', 'Aguilar', '1825-03-29', 'Leeside')
+2024-09-23 18:24:50,380 - COMMIT
+2024-09-23 18:24:50,386 - BEGIN (implicit)
+2024-09-23 18:24:50,386 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,386 - [cached since 3.558s ago] ('Julie', 'Rogers', '2007-01-16', 'Lake Tylertown')
+2024-09-23 18:24:50,388 - COMMIT
+2024-09-23 18:24:50,394 - BEGIN (implicit)
+2024-09-23 18:24:50,394 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,394 - [cached since 3.567s ago] ('Amy', 'Smith', '2011-06-21', 'Camerontown')
+2024-09-23 18:24:50,400 - COMMIT
+2024-09-23 18:24:50,406 - BEGIN (implicit)
+2024-09-23 18:24:50,407 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,407 - [cached since 3.579s ago] ('Timothy', 'Barker', '1995-11-11', 'Port Heidi')
+2024-09-23 18:24:50,408 - COMMIT
+2024-09-23 18:24:50,414 - BEGIN (implicit)
+2024-09-23 18:24:50,415 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,415 - [cached since 3.587s ago] ('Christine', 'Patel', '1988-02-19', 'West Christopher')
+2024-09-23 18:24:50,417 - COMMIT
+2024-09-23 18:24:50,423 - BEGIN (implicit)
+2024-09-23 18:24:50,423 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,424 - [cached since 3.596s ago] ('Kendra', 'Ford', '2011-12-24', 'Richardsonstad')
+2024-09-23 18:24:50,425 - COMMIT
+2024-09-23 18:24:50,433 - BEGIN (implicit)
+2024-09-23 18:24:50,433 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,433 - [cached since 3.606s ago] ('Donna', 'Santiago', '1997-06-13', 'New Michael')
+2024-09-23 18:24:50,435 - COMMIT
+2024-09-23 18:24:50,443 - BEGIN (implicit)
+2024-09-23 18:24:50,443 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,443 - [cached since 3.616s ago] ('Laura', 'Brown', '1837-10-31', 'Lake Aaronview')
+2024-09-23 18:24:50,445 - COMMIT
+2024-09-23 18:24:50,451 - BEGIN (implicit)
+2024-09-23 18:24:50,451 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,451 - [cached since 3.624s ago] ('Andrew', 'Morales', '1887-04-03', 'Mackenziechester')
+2024-09-23 18:24:50,453 - COMMIT
+2024-09-23 18:24:50,459 - BEGIN (implicit)
+2024-09-23 18:24:50,460 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,460 - [cached since 3.632s ago] ('Suzanne', 'Bryant', '1847-11-24', 'Jeffreystad')
+2024-09-23 18:24:50,462 - COMMIT
+2024-09-23 18:24:50,468 - BEGIN (implicit)
+2024-09-23 18:24:50,469 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,469 - [cached since 3.641s ago] ('Zachary', 'Washington', '1827-01-18', 'South Johnmouth')
+2024-09-23 18:24:50,471 - COMMIT
+2024-09-23 18:24:50,477 - BEGIN (implicit)
+2024-09-23 18:24:50,477 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,477 - [cached since 3.65s ago] ('James', 'Martinez', '1847-05-29', 'South Alyssaville')
+2024-09-23 18:24:50,479 - COMMIT
+2024-09-23 18:24:50,485 - BEGIN (implicit)
+2024-09-23 18:24:50,486 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,486 - [cached since 3.658s ago] ('Guy', 'Lopez', '1864-04-04', 'Mendezstad')
+2024-09-23 18:24:50,488 - COMMIT
+2024-09-23 18:24:50,494 - BEGIN (implicit)
+2024-09-23 18:24:50,494 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,495 - [cached since 3.667s ago] ('Madeline', 'Ramirez', '1976-06-14', 'West Tylerland')
+2024-09-23 18:24:50,497 - COMMIT
+2024-09-23 18:24:50,504 - BEGIN (implicit)
+2024-09-23 18:24:50,504 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,504 - [cached since 3.676s ago] ('Alicia', 'Garcia', '1930-05-27', 'North Michael')
+2024-09-23 18:24:50,506 - COMMIT
+2024-09-23 18:24:50,512 - BEGIN (implicit)
+2024-09-23 18:24:50,513 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,513 - [cached since 3.684s ago] ('Chelsea', 'Brown', '1835-11-10', 'North Tracyshire')
+2024-09-23 18:24:50,515 - COMMIT
+2024-09-23 18:24:50,521 - BEGIN (implicit)
+2024-09-23 18:24:50,522 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,522 - [cached since 3.693s ago] ('Jason', 'Sandoval', '1855-09-24', 'Holtville')
+2024-09-23 18:24:50,524 - COMMIT
+2024-09-23 18:24:50,534 - BEGIN (implicit)
+2024-09-23 18:24:50,534 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,534 - [cached since 3.706s ago] ('Robert', 'Walker', '1948-08-10', 'Lake David')
+2024-09-23 18:24:50,536 - COMMIT
+2024-09-23 18:24:50,543 - BEGIN (implicit)
+2024-09-23 18:24:50,543 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,544 - [cached since 3.715s ago] ('Patrick', 'Hampton', '1905-08-09', 'East Stephanie')
+2024-09-23 18:24:50,545 - COMMIT
+2024-09-23 18:24:50,552 - BEGIN (implicit)
+2024-09-23 18:24:50,552 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,552 - [cached since 3.724s ago] ('Megan', 'Burke', '1967-10-08', 'Carlystad')
+2024-09-23 18:24:50,554 - COMMIT
+2024-09-23 18:24:50,561 - BEGIN (implicit)
+2024-09-23 18:24:50,561 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,561 - [cached since 3.733s ago] ('Joseph', 'Ali', '1959-12-25', 'Coletown')
+2024-09-23 18:24:50,563 - COMMIT
+2024-09-23 18:24:50,570 - BEGIN (implicit)
+2024-09-23 18:24:50,571 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,571 - [cached since 3.743s ago] ('Maria', 'Jennings', '1874-01-24', 'Douglasmouth')
+2024-09-23 18:24:50,574 - COMMIT
+2024-09-23 18:24:50,582 - BEGIN (implicit)
+2024-09-23 18:24:50,582 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,583 - [cached since 3.754s ago] ('Jeremiah', 'Walton', '1870-02-01', 'Lake Margaret')
+2024-09-23 18:24:50,585 - COMMIT
+2024-09-23 18:24:50,592 - BEGIN (implicit)
+2024-09-23 18:24:50,592 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,593 - [cached since 3.764s ago] ('Jeffrey', 'Hudson', '1839-10-14', 'West Anthony')
+2024-09-23 18:24:50,595 - COMMIT
+2024-09-23 18:24:50,602 - BEGIN (implicit)
+2024-09-23 18:24:50,602 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,602 - [cached since 3.775s ago] ('Dustin', 'Thompson', '1858-03-28', 'New Reginald')
+2024-09-23 18:24:50,605 - COMMIT
+2024-09-23 18:24:50,615 - BEGIN (implicit)
+2024-09-23 18:24:50,616 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,616 - [cached since 3.788s ago] ('Mark', 'Garcia', '1867-01-21', 'South Angelaborough')
+2024-09-23 18:24:50,618 - COMMIT
+2024-09-23 18:24:50,628 - BEGIN (implicit)
+2024-09-23 18:24:50,628 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,628 - [cached since 3.801s ago] ('Theresa', 'Gonzalez', '1998-02-01', 'Amyburgh')
+2024-09-23 18:24:50,631 - COMMIT
+2024-09-23 18:24:50,641 - BEGIN (implicit)
+2024-09-23 18:24:50,642 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,642 - [cached since 3.814s ago] ('Sean', 'Gill', '1913-10-21', 'Craigchester')
+2024-09-23 18:24:50,645 - COMMIT
+2024-09-23 18:24:50,657 - BEGIN (implicit)
+2024-09-23 18:24:50,657 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,658 - [cached since 3.83s ago] ('Eric', 'Lewis', '1932-12-10', 'Petersside')
+2024-09-23 18:24:50,661 - COMMIT
+2024-09-23 18:24:50,675 - BEGIN (implicit)
+2024-09-23 18:24:50,676 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,676 - [cached since 3.848s ago] ('Angela', 'Kerr', '1855-10-20', 'New Bobby')
+2024-09-23 18:24:50,681 - COMMIT
+2024-09-23 18:24:50,694 - BEGIN (implicit)
+2024-09-23 18:24:50,696 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,696 - [cached since 3.867s ago] ('Mark', 'Snyder', '1980-08-24', 'Lake Michael')
+2024-09-23 18:24:50,698 - COMMIT
+2024-09-23 18:24:50,708 - BEGIN (implicit)
+2024-09-23 18:24:50,708 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,708 - [cached since 3.88s ago] ('Jacob', 'Banks', '1925-09-30', 'Ramirezchester')
+2024-09-23 18:24:50,710 - COMMIT
+2024-09-23 18:24:50,721 - BEGIN (implicit)
+2024-09-23 18:24:50,722 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,722 - [cached since 3.894s ago] ('Karla', 'Henry', '2000-12-25', 'Thomasstad')
+2024-09-23 18:24:50,724 - COMMIT
+2024-09-23 18:24:50,731 - BEGIN (implicit)
+2024-09-23 18:24:50,732 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,732 - [cached since 3.904s ago] ('Kevin', 'Wilson', '1856-03-16', 'West Edwardfort')
+2024-09-23 18:24:50,734 - COMMIT
+2024-09-23 18:24:50,742 - BEGIN (implicit)
+2024-09-23 18:24:50,742 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,743 - [cached since 3.914s ago] ('Sharon', 'Burns', '2010-07-14', 'Stricklandfort')
+2024-09-23 18:24:50,744 - COMMIT
+2024-09-23 18:24:50,751 - BEGIN (implicit)
+2024-09-23 18:24:50,751 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,751 - [cached since 3.923s ago] ('Alicia', 'Parker', '1831-10-07', 'South Tammy')
+2024-09-23 18:24:50,753 - COMMIT
+2024-09-23 18:24:50,761 - BEGIN (implicit)
+2024-09-23 18:24:50,762 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,762 - [cached since 3.934s ago] ('Amy', 'Hughes', '1949-04-08', 'East Julie')
+2024-09-23 18:24:50,764 - COMMIT
+2024-09-23 18:24:50,770 - BEGIN (implicit)
+2024-09-23 18:24:50,771 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,771 - [cached since 3.943s ago] ('David', 'Foley', '1954-05-31', 'Kellystad')
+2024-09-23 18:24:50,773 - COMMIT
+2024-09-23 18:24:50,780 - BEGIN (implicit)
+2024-09-23 18:24:50,781 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,781 - [cached since 3.953s ago] ('Ashley', 'Taylor', '1924-08-01', 'Vargasborough')
+2024-09-23 18:24:50,783 - COMMIT
+2024-09-23 18:24:50,791 - BEGIN (implicit)
+2024-09-23 18:24:50,791 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,791 - [cached since 3.963s ago] ('Bianca', 'Martin', '1826-06-01', 'Josechester')
+2024-09-23 18:24:50,794 - COMMIT
+2024-09-23 18:24:50,800 - BEGIN (implicit)
+2024-09-23 18:24:50,800 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,801 - [cached since 3.973s ago] ('Ryan', 'Benitez', '1937-06-19', 'East Paige')
+2024-09-23 18:24:50,803 - COMMIT
+2024-09-23 18:24:50,811 - BEGIN (implicit)
+2024-09-23 18:24:50,812 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,812 - [cached since 3.984s ago] ('Kristina', 'Hester', '1990-03-18', 'East Jorge')
+2024-09-23 18:24:50,814 - COMMIT
+2024-09-23 18:24:50,820 - BEGIN (implicit)
+2024-09-23 18:24:50,820 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,820 - [cached since 3.992s ago] ('James', 'Flowers', '1847-12-15', 'West Patrickchester')
+2024-09-23 18:24:50,822 - COMMIT
+2024-09-23 18:24:50,829 - BEGIN (implicit)
+2024-09-23 18:24:50,829 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,829 - [cached since 4.002s ago] ('Kevin', 'Wilson', '2013-06-02', 'Ronnieville')
+2024-09-23 18:24:50,831 - COMMIT
+2024-09-23 18:24:50,838 - BEGIN (implicit)
+2024-09-23 18:24:50,839 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,839 - [cached since 4.011s ago] ('Sara', 'Gregory', '1953-08-17', 'Thomasburgh')
+2024-09-23 18:24:50,841 - COMMIT
+2024-09-23 18:24:50,849 - BEGIN (implicit)
+2024-09-23 18:24:50,850 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,850 - [cached since 4.022s ago] ('Jackie', 'Thompson', '2003-05-18', 'Anthonyberg')
+2024-09-23 18:24:50,852 - COMMIT
+2024-09-23 18:24:50,862 - BEGIN (implicit)
+2024-09-23 18:24:50,863 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,863 - [cached since 4.035s ago] ('Todd', 'Tucker', '2010-11-30', 'Anthonyport')
+2024-09-23 18:24:50,867 - COMMIT
+2024-09-23 18:24:50,877 - BEGIN (implicit)
+2024-09-23 18:24:50,878 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,878 - [cached since 4.05s ago] ('Carla', 'Pope', '1945-06-24', 'Leeview')
+2024-09-23 18:24:50,881 - COMMIT
+2024-09-23 18:24:50,889 - BEGIN (implicit)
+2024-09-23 18:24:50,889 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,890 - [cached since 4.062s ago] ('Ronald', 'Williams', '1907-10-19', 'West Lori')
+2024-09-23 18:24:50,892 - COMMIT
+2024-09-23 18:24:50,900 - BEGIN (implicit)
+2024-09-23 18:24:50,900 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,900 - [cached since 4.072s ago] ('Jeffrey', 'Bailey', '1878-12-10', 'North Kimberly')
+2024-09-23 18:24:50,903 - COMMIT
+2024-09-23 18:24:50,910 - BEGIN (implicit)
+2024-09-23 18:24:50,911 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,911 - [cached since 4.083s ago] ('Angela', 'Allen', '1963-07-11', 'Tracymouth')
+2024-09-23 18:24:50,914 - COMMIT
+2024-09-23 18:24:50,921 - BEGIN (implicit)
+2024-09-23 18:24:50,921 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,921 - [cached since 4.094s ago] ('Gabriel', 'Jones', '1987-06-13', 'Samuelhaven')
+2024-09-23 18:24:50,924 - COMMIT
+2024-09-23 18:24:50,932 - BEGIN (implicit)
+2024-09-23 18:24:50,932 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,932 - [cached since 4.105s ago] ('Donna', 'Gordon', '1857-01-05', 'Port Justin')
+2024-09-23 18:24:50,934 - COMMIT
+2024-09-23 18:24:50,942 - BEGIN (implicit)
+2024-09-23 18:24:50,942 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,942 - [cached since 4.114s ago] ('Paul', 'Castillo', '2012-12-22', 'Markborough')
+2024-09-23 18:24:50,944 - COMMIT
+2024-09-23 18:24:50,951 - BEGIN (implicit)
+2024-09-23 18:24:50,952 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,952 - [cached since 4.124s ago] ('Corey', 'Long', '1915-03-24', 'Whiteborough')
+2024-09-23 18:24:50,954 - COMMIT
+2024-09-23 18:24:50,962 - BEGIN (implicit)
+2024-09-23 18:24:50,963 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,963 - [cached since 4.135s ago] ('Xavier', 'Foster', '1976-08-01', 'New Andrew')
+2024-09-23 18:24:50,967 - COMMIT
+2024-09-23 18:24:50,976 - BEGIN (implicit)
+2024-09-23 18:24:50,977 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,977 - [cached since 4.149s ago] ('Andrew', 'Bennett', '1865-07-28', 'Hancockhaven')
+2024-09-23 18:24:50,980 - COMMIT
+2024-09-23 18:24:50,987 - BEGIN (implicit)
+2024-09-23 18:24:50,987 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:50,988 - [cached since 4.159s ago] ('Hannah', 'Johnson', '1979-01-19', 'Heidiport')
+2024-09-23 18:24:50,990 - COMMIT
+2024-09-23 18:24:51,001 - BEGIN (implicit)
+2024-09-23 18:24:51,001 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,001 - [cached since 4.174s ago] ('Zachary', 'Alvarado', '1845-11-16', 'Port Lindatown')
+2024-09-23 18:24:51,004 - COMMIT
+2024-09-23 18:24:51,014 - BEGIN (implicit)
+2024-09-23 18:24:51,015 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,015 - [cached since 4.187s ago] ('Douglas', 'Cox', '1883-09-22', 'Mckeeberg')
+2024-09-23 18:24:51,017 - COMMIT
+2024-09-23 18:24:51,026 - BEGIN (implicit)
+2024-09-23 18:24:51,026 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,026 - [cached since 4.199s ago] ('Matthew', 'Ball', '1888-03-31', 'Aliland')
+2024-09-23 18:24:51,030 - COMMIT
+2024-09-23 18:24:51,037 - BEGIN (implicit)
+2024-09-23 18:24:51,038 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,038 - [cached since 4.21s ago] ('Kevin', 'Shaw', '2000-03-28', 'South Jason')
+2024-09-23 18:24:51,043 - COMMIT
+2024-09-23 18:24:51,052 - BEGIN (implicit)
+2024-09-23 18:24:51,052 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,053 - [cached since 4.225s ago] ('Kirsten', 'Clay', '1831-11-23', 'Lewisport')
+2024-09-23 18:24:51,057 - COMMIT
+2024-09-23 18:24:51,065 - BEGIN (implicit)
+2024-09-23 18:24:51,066 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,066 - [cached since 4.238s ago] ('Michele', 'Walker', '1989-07-06', 'West Jonathan')
+2024-09-23 18:24:51,068 - COMMIT
+2024-09-23 18:24:51,076 - BEGIN (implicit)
+2024-09-23 18:24:51,076 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,077 - [cached since 4.249s ago] ('Nicholas', 'Coleman', '1886-07-22', 'Mullenland')
+2024-09-23 18:24:51,079 - COMMIT
+2024-09-23 18:24:51,086 - BEGIN (implicit)
+2024-09-23 18:24:51,086 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,086 - [cached since 4.259s ago] ('Laura', 'Watts', '1882-08-20', 'North Justinchester')
+2024-09-23 18:24:51,088 - COMMIT
+2024-09-23 18:24:51,097 - BEGIN (implicit)
+2024-09-23 18:24:51,097 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,098 - [cached since 4.269s ago] ('Tiffany', 'Lewis', '1889-02-04', 'Wallaceview')
+2024-09-23 18:24:51,100 - COMMIT
+2024-09-23 18:24:51,107 - BEGIN (implicit)
+2024-09-23 18:24:51,108 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,109 - [cached since 4.28s ago] ('Donna', 'Bailey', '2001-07-31', 'Martinburgh')
+2024-09-23 18:24:51,111 - COMMIT
+2024-09-23 18:24:51,118 - BEGIN (implicit)
+2024-09-23 18:24:51,118 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,119 - [cached since 4.29s ago] ('Karl', 'Lewis', '1951-07-05', 'New Johnside')
+2024-09-23 18:24:51,120 - COMMIT
+2024-09-23 18:24:51,129 - BEGIN (implicit)
+2024-09-23 18:24:51,129 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,130 - [cached since 4.301s ago] ('Christopher', 'Richardson', '1896-01-17', 'South Matthew')
+2024-09-23 18:24:51,132 - COMMIT
+2024-09-23 18:24:51,139 - BEGIN (implicit)
+2024-09-23 18:24:51,140 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,140 - [cached since 4.312s ago] ('Penny', 'Mccall', '1862-05-09', 'Joshuaville')
+2024-09-23 18:24:51,142 - COMMIT
+2024-09-23 18:24:51,149 - BEGIN (implicit)
+2024-09-23 18:24:51,150 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,150 - [cached since 4.322s ago] ('Eddie', 'Hunt', '1900-02-07', 'Melissaborough')
+2024-09-23 18:24:51,152 - COMMIT
+2024-09-23 18:24:51,160 - BEGIN (implicit)
+2024-09-23 18:24:51,160 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,161 - [cached since 4.332s ago] ('Karen', 'Cortez', '1922-09-24', 'Port Cheryl')
+2024-09-23 18:24:51,162 - COMMIT
+2024-09-23 18:24:51,170 - BEGIN (implicit)
+2024-09-23 18:24:51,171 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,171 - [cached since 4.343s ago] ('Lisa', 'Case', '2009-05-23', 'Mathewsberg')
+2024-09-23 18:24:51,173 - COMMIT
+2024-09-23 18:24:51,181 - BEGIN (implicit)
+2024-09-23 18:24:51,181 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,181 - [cached since 4.353s ago] ('Monica', 'Davis', '1935-08-13', 'West Paul')
+2024-09-23 18:24:51,183 - COMMIT
+2024-09-23 18:24:51,190 - BEGIN (implicit)
+2024-09-23 18:24:51,191 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,191 - [cached since 4.363s ago] ('Christina', 'Bauer', '1935-04-14', 'Shortside')
+2024-09-23 18:24:51,193 - COMMIT
+2024-09-23 18:24:51,200 - BEGIN (implicit)
+2024-09-23 18:24:51,201 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,202 - [cached since 4.374s ago] ('Mark', 'Bennett', '1841-02-27', 'Careyside')
+2024-09-23 18:24:51,204 - COMMIT
+2024-09-23 18:24:51,212 - BEGIN (implicit)
+2024-09-23 18:24:51,213 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,213 - [cached since 4.386s ago] ('Shawn', 'Marshall', '1919-05-18', 'West Katie')
+2024-09-23 18:24:51,216 - COMMIT
+2024-09-23 18:24:51,222 - BEGIN (implicit)
+2024-09-23 18:24:51,223 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,223 - [cached since 4.396s ago] ('Robert', 'Davis', '1885-03-13', 'Andersonberg')
+2024-09-23 18:24:51,225 - COMMIT
+2024-09-23 18:24:51,233 - BEGIN (implicit)
+2024-09-23 18:24:51,234 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,234 - [cached since 4.406s ago] ('Jason', 'Vega', '1930-10-19', 'Hernandezchester')
+2024-09-23 18:24:51,236 - COMMIT
+2024-09-23 18:24:51,245 - BEGIN (implicit)
+2024-09-23 18:24:51,245 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,245 - [cached since 4.418s ago] ('Ronald', 'James', '1937-12-21', 'Samanthabury')
+2024-09-23 18:24:51,247 - COMMIT
+2024-09-23 18:24:51,255 - BEGIN (implicit)
+2024-09-23 18:24:51,255 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,256 - [cached since 4.428s ago] ('Helen', 'Fisher', '1972-07-15', 'Ochoatown')
+2024-09-23 18:24:51,258 - COMMIT
+2024-09-23 18:24:51,266 - BEGIN (implicit)
+2024-09-23 18:24:51,266 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,266 - [cached since 4.439s ago] ('Samuel', 'Brown', '1992-02-02', 'North Destiny')
+2024-09-23 18:24:51,268 - COMMIT
+2024-09-23 18:24:51,278 - BEGIN (implicit)
+2024-09-23 18:24:51,279 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,279 - [cached since 4.451s ago] ('Jessica', 'Sanford', '1841-10-21', 'Williamsshire')
+2024-09-23 18:24:51,281 - COMMIT
+2024-09-23 18:24:51,288 - BEGIN (implicit)
+2024-09-23 18:24:51,289 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,289 - [cached since 4.462s ago] ('Randy', 'Frazier', '1871-07-09', 'Stevetown')
+2024-09-23 18:24:51,292 - COMMIT
+2024-09-23 18:24:51,300 - BEGIN (implicit)
+2024-09-23 18:24:51,300 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,301 - [cached since 4.473s ago] ('Tonya', 'Morales', '1960-09-02', 'South Miguel')
+2024-09-23 18:24:51,303 - COMMIT
+2024-09-23 18:24:51,310 - BEGIN (implicit)
+2024-09-23 18:24:51,311 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,311 - [cached since 4.483s ago] ('Christopher', 'Ball', '1966-02-11', 'Margaretberg')
+2024-09-23 18:24:51,313 - COMMIT
+2024-09-23 18:24:51,319 - BEGIN (implicit)
+2024-09-23 18:24:51,319 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,319 - [cached since 4.491s ago] ('Nicholas', 'Travis', '1898-06-01', 'Rodriguezburgh')
+2024-09-23 18:24:51,321 - COMMIT
+2024-09-23 18:24:51,328 - BEGIN (implicit)
+2024-09-23 18:24:51,329 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,329 - [cached since 4.501s ago] ('Brittany', 'Li', '1923-05-22', 'South Mark')
+2024-09-23 18:24:51,331 - COMMIT
+2024-09-23 18:24:51,337 - BEGIN (implicit)
+2024-09-23 18:24:51,338 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,338 - [cached since 4.51s ago] ('Stephen', 'Rice', '1992-08-17', 'Jeffreymouth')
+2024-09-23 18:24:51,341 - COMMIT
+2024-09-23 18:24:51,347 - BEGIN (implicit)
+2024-09-23 18:24:51,348 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,348 - [cached since 4.52s ago] ('Kelly', 'Short', '1958-02-05', 'Lake Kathy')
+2024-09-23 18:24:51,349 - COMMIT
+2024-09-23 18:24:51,356 - BEGIN (implicit)
+2024-09-23 18:24:51,356 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,357 - [cached since 4.529s ago] ('William', 'Hernandez', '1898-10-31', 'North Malik')
+2024-09-23 18:24:51,359 - COMMIT
+2024-09-23 18:24:51,366 - BEGIN (implicit)
+2024-09-23 18:24:51,367 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,367 - [cached since 4.539s ago] ('Patricia', 'Cox', '1871-11-27', 'North Jacquelinebury')
+2024-09-23 18:24:51,368 - COMMIT
+2024-09-23 18:24:51,375 - BEGIN (implicit)
+2024-09-23 18:24:51,376 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,376 - [cached since 4.548s ago] ('Michael', 'Alvarez', '1898-06-01', 'Torreston')
+2024-09-23 18:24:51,378 - COMMIT
+2024-09-23 18:24:51,383 - BEGIN (implicit)
+2024-09-23 18:24:51,384 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,384 - [cached since 4.556s ago] ('Whitney', 'Gentry', '1945-05-31', 'Tanyastad')
+2024-09-23 18:24:51,386 - COMMIT
+2024-09-23 18:24:51,393 - BEGIN (implicit)
+2024-09-23 18:24:51,394 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,394 - [cached since 4.566s ago] ('Logan', 'Anderson', '1872-04-20', 'Tyronemouth')
+2024-09-23 18:24:51,395 - COMMIT
+2024-09-23 18:24:51,402 - BEGIN (implicit)
+2024-09-23 18:24:51,402 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,403 - [cached since 4.575s ago] ('Bryan', 'Russo', '1868-10-25', 'Richardsonport')
+2024-09-23 18:24:51,406 - COMMIT
+2024-09-23 18:24:51,414 - BEGIN (implicit)
+2024-09-23 18:24:51,416 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,416 - [cached since 4.589s ago] ('Mark', 'Humphrey', '1974-08-03', 'Thomastown')
+2024-09-23 18:24:51,419 - COMMIT
+2024-09-23 18:24:51,426 - BEGIN (implicit)
+2024-09-23 18:24:51,426 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,427 - [cached since 4.599s ago] ('Donna', 'Carr', '1906-10-14', 'North Anthonyview')
+2024-09-23 18:24:51,429 - COMMIT
+2024-09-23 18:24:51,435 - BEGIN (implicit)
+2024-09-23 18:24:51,436 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,436 - [cached since 4.608s ago] ('Harry', 'Gibbs', '1862-02-28', 'Jamiemouth')
+2024-09-23 18:24:51,438 - COMMIT
+2024-09-23 18:24:51,446 - BEGIN (implicit)
+2024-09-23 18:24:51,446 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,447 - [cached since 4.619s ago] ('Robert', 'Sims', '1852-05-17', 'Woodwardfurt')
+2024-09-23 18:24:51,449 - COMMIT
+2024-09-23 18:24:51,456 - BEGIN (implicit)
+2024-09-23 18:24:51,457 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,457 - [cached since 4.629s ago] ('Tyler', 'Moore', '1838-04-29', 'Jonesshire')
+2024-09-23 18:24:51,459 - COMMIT
+2024-09-23 18:24:51,466 - BEGIN (implicit)
+2024-09-23 18:24:51,466 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,467 - [cached since 4.639s ago] ('Amber', 'Miller', '1919-02-22', 'North Amandaview')
+2024-09-23 18:24:51,469 - COMMIT
+2024-09-23 18:24:51,476 - BEGIN (implicit)
+2024-09-23 18:24:51,477 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,477 - [cached since 4.649s ago] ('Aaron', 'Nguyen', '1833-11-08', 'Mccormickchester')
+2024-09-23 18:24:51,479 - COMMIT
+2024-09-23 18:24:51,486 - BEGIN (implicit)
+2024-09-23 18:24:51,486 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,486 - [cached since 4.659s ago] ('Pamela', 'Boyle', '1956-05-11', 'Schwartzland')
+2024-09-23 18:24:51,489 - COMMIT
+2024-09-23 18:24:51,497 - BEGIN (implicit)
+2024-09-23 18:24:51,497 - INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES (?, ?, ?, ?)
+2024-09-23 18:24:51,497 - [cached since 4.67s ago] ('Tammy', 'Beasley', '1905-06-12', 'Garzamouth')
+2024-09-23 18:24:51,500 - COMMIT
