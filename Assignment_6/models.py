@@ -19,7 +19,9 @@ class Author(Base):
     birth_date = Column(Date)
     birth_place = Column(String)
     
-    books = relationship('Book', secondary=author_book, back_populates='authors')
+    books = relationship('Book',
+                         secondary=author_book,
+                         back_populates='authors')
     
     def __init__(self, first_name, last_name, birth_date, birth_place):
         self.first_name = first_name
@@ -35,6 +37,7 @@ class Author(Base):
                                 - Birth place = {self.birth_place}
                                """)
 
+
 class Book(Base):
     __tablename__ = 'book'
     
@@ -44,7 +47,9 @@ class Book(Base):
     pages = Column(Integer)
     publish_date = Column(Date)
     
-    authors = relationship('Author', secondary=author_book, back_populates='books')
+    authors = relationship('Author',
+                           secondary=author_book,
+                           back_populates='books')
     
     def __init__(self, title, category, pages, publish_date):
         self.title = title
