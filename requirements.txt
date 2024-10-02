@@ -1,3 +1,9 @@
-Faker==28.4.1
-python-dateutil==2.9.0.post0
-six==1.16.0
+requests~=2.32.3
+PyQt5~=5.15.11
+Pympler~=1.1
+aiohttp~=3.10.5
+asyncio~=3.4.3
+Faker~=28.4.1
+SQLAlchemy~=2.0.35
+matplotlib~=3.9.2
+pandas~=2.2.3
