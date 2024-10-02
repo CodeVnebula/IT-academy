@@ -4,3 +4,5 @@ dist/
 *.spec
 qodana.yaml
 .idea/
+tempCodeRunnerFile.py
+__pycache__/
